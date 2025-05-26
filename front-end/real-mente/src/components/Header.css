@@ -1,6 +1,33 @@
 .header{
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
+    background-color: black;
+}
+
+.botaoH{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border: none;
+    font-size:x-large;
+    margin-left: 110px;
+    margin-right: 110px;
+    color: #B50073;
+    background-color: black;
+}
+
+.botaoH:hover{
+    font-size: 25px;
+    color: #5A12E4;
+}
+
+.logo{
+    width: 230px;
+}
+
+.logo:hover{
+    width: 240px;
+}
+
+hr{
+    color:#B50073;
 }
 
 /* fontes:
