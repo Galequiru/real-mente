@@ -1,18 +1,22 @@
-import React from 'react';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import './Header.css'
+import logo from '../assets/logo.png';
 
-const Header = () => {
-  return (
-    <header className = "">
-      <h1 className = "">RealMente</h1>
-      <nav className = "">
-        <ul className = "">
-          <li><a href = "/" className="hover:underline">Início</a></li>
-          <li><a href = "/sobre" className="hover:underline">Sobre</a></li>
-          <li><a href = "/contato" className="hover:underline">Contato</a></li>
-        </ul>
-      </nav>
-    </header>
-  );
-};
+function Header() {
+    return (
+        <div className = "header">
+           <Link to = "/">
+                <img src={logo} alt="Logo" className="logo" />
+            </Link>  
+            <br />
+            <Link to = "/quem-somos"><button>Quem somos?</button></Link> 
+            <Link to = "/escolha-seu-destino"><button>Escolha seu destino</button></Link> 
+            <Link to = "/planos-para-compra"><button>Planos para compra</button></Link> 
+            <Link to = "/como-funciona"><button>Como funciona?</button></Link> 
+            <h1>teste</h1>
+        </div>
+    )
+}
 
-export default Header;
+export default Header
