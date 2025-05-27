@@ -4,8 +4,11 @@ import './Home.css'
 function Home() {
   return (
     <div className = "home"> 
+          <div className = "info">
+
+          </div>
+          <div className = "texto"></div>
           
-      <h1>Teste</h1>
     </div>
   )
 }

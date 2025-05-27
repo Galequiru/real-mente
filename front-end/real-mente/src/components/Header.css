@@ -18,6 +18,9 @@
     color: #5A12E4;
 }
 
+button:focus {
+    color: #5A12E4;
+}
 .logo{
     width: 230px;
 }
@@ -27,7 +30,7 @@
 }
 
 hr{
-    color:#B50073;
+    color:#5A12E4;
 }
 
 /* fontes:

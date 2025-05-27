@@ -16,5 +16,8 @@
     "url": "https://github.com/Galequiru/real-mente/issues"
   },
   "homepage": "https://github.com/Galequiru/real-mente#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "react-scripts": "^5.0.1"
+  }
 }
