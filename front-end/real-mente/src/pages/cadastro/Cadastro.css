@@ -1,0 +1,8 @@
+.containerCadLog{
+    display: flex;
+    justify-content: space-around;
+    margin-left: -40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: black;
+    color:#B50073;
+}
