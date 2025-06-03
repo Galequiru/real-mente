@@ -10,18 +10,170 @@
     display: flex;
     justify-content: space-around;
     font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
-    font-style: ;
-    background-color: #b5007337;
-    border-radius: 10px;
-    border-color: #B50073;
+    background-color: #ca369437;
+    border: 2px solid #B50073;
+    border-radius: 20px ;
     color: #B50073;
     font-size: x-large;
     justify-content: space-evenly;  
     align-items: center; 
-    width: 900px;
-    height: 700px;
+    width: 1000px;
+    height: 800px;
+    font-weight:1000;
 }
 
 .login{
     margin-top: -150px;
+}
+
+hr {
+    border: none;  
+    height: 1px; 
+    background-color: #B50073;
+    width: 450px;    
+}
+
+.cadastrarC{
+    border: 2px solid #B50073;
+    border-radius: 10px;
+    height: 60px;
+    width: 210px;
+    display: block;
+    margin: 0 auto;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #ca369437;
+    color: #B50073;
+    font-size: x-large;
+    font-weight:1000;
+}
+
+.cadastrarC:hover{
+    height: 65px;
+    width: 215px;
+    font-size: 26px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.355);
+
+}
+
+.loginC{
+    border: 2px solid #B50073;
+    border-radius: 10px;
+    height: 50px;
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #ca369437;
+    color: #B50073;
+    font-size: x-large;
+    font-weight:1000;
+}
+
+.loginC:hover{
+    height: 55px;
+    width: 205px;
+    font-size: 26px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.355);
+
+}
+
+.usuarioC{
+    height: 35px;
+    width: 400px;
+    border: 2px solid #B50073;
+    border-radius: 8px;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #ca369437;
+    font-size: large;
+    color: white;
+    font-weight:580;
+}
+
+.emailC{
+    height: 35px;
+    width: 400px;
+    border: 2px solid #B50073;
+    border-radius: 8px;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #ca369437;
+    font-size: large;
+    color: white;
+    font-weight:580;
+}
+
+.cpfC{
+    height: 35px;
+    width: 400px;
+    border: 2px solid #B50073;
+    border-radius: 8px;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #ca369437;
+    font-size: large;
+    color: white;
+    font-weight:580;
+}
+
+.telefoneC{
+    height: 35px;
+    width: 150px;
+    border: 2px solid #B50073;
+    border-radius: 8px;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #ca369437;
+    font-size: large;
+    color: white;
+    font-weight:580;
+}
+
+.dataNascC{
+    margin-left: 40px;
+    height: 35px;
+    width: 155px;
+    border: 2px solid #B50073;
+    border-radius: 8px;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #ca369437;
+    font-size: large;
+    color: white;
+    font-weight:580;
+}
+
+.dataNasc{
+    margin-left: 90px;
+}
+
+.senhaC{
+    height: 35px;
+    width:400px;
+    border: 2px solid #B50073;
+    border-radius: 8px;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #ca369437;
+    font-size: large;
+    color: white;
+    font-weight:580;
+}
+
+.senhaL{
+    height: 35px;
+    width:400px;
+    border: 2px solid #B50073;
+    border-radius: 8px;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #ca369437;
+    font-size: large;
+    color: white;
+    font-weight:580;
+}
+
+.emailUsuL{
+    height: 35px;
+    width:400px;
+    border: 2px solid #B50073;
+    border-radius: 8px;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #ca369437;
+    font-size: large;
+    color: white;
+    font-weight:580;
 }

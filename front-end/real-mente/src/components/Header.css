@@ -18,9 +18,10 @@
     color: #5A12E4;
 }
 
-button:focus {
+.botaoH:focus {
     color: #5A12E4;
 }
+
 .logo{
     width: 230px;
 }
