@@ -35,7 +35,7 @@ function Cadastro() {
               <br />
               <input type = "password" className = "senhaC" placeholder = "digite uma senha" required/>
 
-              <hr />
+              <hr className = "linhaC" />
               <button className = "cadastrarC">CADASTRAR</button>
 
 
@@ -57,7 +57,7 @@ function Cadastro() {
             <br />
             <input type = "password" className = "senhaL" placeholder = "digite sua senha" required/>
 
-            <hr />
+            <hr className = "linhaC" />
             <button className = "loginC">LOGIN</button>
 
           </div>

@@ -14,7 +14,7 @@ function Header() {
             <Link to = "/app/escolha-seu-destino"><button className = "botaoH">Escolha seu destino</button></Link> 
             <Link to = "/app/planos-para-compra"><button className = "botaoH">Planos para compra</button></Link> 
             <Link to = "/app/como-funciona"><button className = "botaoH">Como funciona?</button></Link> 
-            <hr />
+            <hr className = "linhaH" />
         </div>
     )
 }

@@ -4,17 +4,19 @@
 }
 
 .botaoH{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #000000;
     border: none;
-    font-size:x-large;
+    font-size:29px;
     margin-left: 110px;
     margin-right: 110px;
     color: #B50073;
     background-color: black;
+    font-weight: 1000;
 }
 
 .botaoH:hover{
-    font-size: 25px;
+    font-size: 30px;
     color: #5A12E4;
 }
 
@@ -30,9 +32,11 @@
     width: 240px;
 }
 
-hr{
-    color:#5A12E4;
+.linhaH {
+    border: none;  
+    height: 1.4px; 
+    background-color: #5A12E4;
+    width: 1900px;    
 }
 
-/* fontes:
-letra grande boa para titulo: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif */
+
