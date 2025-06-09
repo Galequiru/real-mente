@@ -13,6 +13,7 @@
     color: #B50073;
     background-color: black;
     font-weight: 1000;
+    transition: transform 0.3s ease;
 }
 
 .botaoH:hover{
@@ -26,6 +27,7 @@
 
 .logo{
     width: 230px;
+    transition: transform 0.3s ease;
 }
 
 .logo:hover{

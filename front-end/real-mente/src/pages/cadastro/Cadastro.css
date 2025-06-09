@@ -45,6 +45,7 @@
     color: #B50073;
     font-size: x-large;
     font-weight:1000;
+    transition: transform 0.3s ease;
 }
 
 .cadastrarC:hover{
@@ -65,6 +66,7 @@
     color: #B50073;
     font-size: x-large;
     font-weight:1000;
+    transition: transform 0.3s ease;
 }
 
 .loginC:hover{

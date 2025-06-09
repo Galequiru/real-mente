@@ -1,0 +1,58 @@
+.quemSomos{
+    justify-content: space-around;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: x-large;  
+    height: 80vh;
+    font-weight:1000;
+    margin-top: -8px;
+    margin-bottom: -10px;
+}
+
+.tituloQS{
+    color: #B50073;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    font-weight: bold;
+    text-align: center;
+}
+  
+.membros{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+  
+.avatarFoto{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+  
+.cardMembro {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    border-radius: 20px;
+    width: 340px;
+    height: 500px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .cardMembro:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 60px #f038ac20;
+  }
+  
+.descricao{
+    white-space: pre-line;
+    font-size: medium;
+    font-weight: bold;
+}
+
+
+  

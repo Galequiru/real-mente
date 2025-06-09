@@ -6,6 +6,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Cadastro from './pages/cadastro/Cadastro'
 import EscolhaDestino from './pages/escolhaDestino/EscolhaDestino'
+import QuemSomos from './pages/quemSomos/QuemSomos'
 
 function App() {
     return(
@@ -23,13 +24,23 @@ function App() {
           } />
           
          <Route path="/escolha-seu-destino" element={
-          <>
-            <Header />
-            <EscolhaDestino />
-            
-            <Footer />
-          </>
-      } />
+              <>
+                <Header />
+                <EscolhaDestino />
+                
+                <Footer />
+              </>
+          } />
+
+         <Route path="/quem-somos" element={
+                <>
+                  <Header />
+                  <QuemSomos />
+                  
+                  <Footer />
+                </>
+          } />
+
 
     </Routes>
         </Router>
