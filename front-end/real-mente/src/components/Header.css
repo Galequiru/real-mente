@@ -16,7 +16,7 @@
 }
 
 .botaoH:hover{
-    font-size: 30px;
+    transform: scale(1.05);
     color: #5A12E4;
 }
 
@@ -29,7 +29,8 @@
 }
 
 .logo:hover{
-    width: 240px;
+    transform: scale(1.05);
+
 }
 
 .linhaH {
