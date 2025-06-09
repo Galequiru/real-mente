@@ -5,15 +5,16 @@ function Home() {
   return (
     <div className = "home"> 
           <div className = "info">
-            <label>informações importantes aqui: :)</label>
+            <br />
+            <br />
+            <div className = "infoBox"></div>
           </div>
           <div className = "texto">
-            <label>“Entre no conteudo, mergulhe no conhecimento”</label>
+            <p>“Entre no conteudo, mergulhe no conhecimento”</p>
             <br />
-            <br />
-            <label>Exploração interativa de conteudos escolares com realidade virtual nas escolas.
+            <p>Exploração interativa de conteudos escolares com realidade virtual nas escolas.
                    Desenvolvimento de um ambiente virtual imersivo para apoio ao ensino de disciplinas 
-                   escolares com uso de óculos de realidade virtual</label>
+                   escolares com uso de óculos de realidade virtual</p>
           </div>
           
     </div>

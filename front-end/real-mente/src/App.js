@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import Cadastro from './pages/cadastro/Cadastro'
 import EscolhaDestino from './pages/escolhaDestino/EscolhaDestino'
 import QuemSomos from './pages/quemSomos/QuemSomos'
+import ComoFunciona from './pages/comoFunciona/ComoFunciona'
 
 function App() {
     return(
@@ -41,6 +42,14 @@ function App() {
                 </>
           } />
 
+           <Route path="/como-funciona" element={
+                          <>
+                            <Header />
+                            <ComoFunciona />
+                            
+                            <Footer />
+                          </>
+            } />
 
     </Routes>
         </Router>

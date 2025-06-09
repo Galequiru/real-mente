@@ -27,3 +27,11 @@
     background-color: #000000;
     margin: auto;
 }
+
+.infoBox{
+    width: 740px;
+    height: 420px;
+    background-color: #ccc;
+    border-radius: 10px;
+    margin-left: -70px;
+}
