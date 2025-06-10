@@ -30,7 +30,7 @@ pub async fn add(
     .insert_one(data.into_inner(), None)
     .await {
         Ok(res) => {
-            return Custom(Status::Created,
+            Custom(Status::Created,
                 Json(json!({
                     "status": "success",
                     "message": format!("Object created with id: {}", res.inserted_id.as_object_id().unwrap())
@@ -38,12 +38,12 @@ pub async fn add(
             )
         },
         Err(e) => {
-            return Custom(Status::InternalServerError,
+            Custom(Status::InternalServerError,
                 Json(json!({
                     "status": "error",
                     "message": format!("Error creating object: {}", e)
                 }))
-            );
+            )
         }
     }
 }}}
