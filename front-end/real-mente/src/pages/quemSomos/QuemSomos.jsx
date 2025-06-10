@@ -7,19 +7,19 @@ import linaImg from '../../assets/lina.jpg'
 const membros = [
   {
     nome: 'Alice Lopes',
-    descricao: 'descrição\nsobre a pessoa\nsei lá',
+    descricao: '18 anos\nestudante do cotuca responsavel pelo desenvolvimento front',
     cor: 'deeppink',
     imagem: liaImg,
   },
   {
     nome: 'Gabriel Leonardo',
-    descricao: 'descrição\nsobre a pessoa\nsei lá',
+    descricao: '18 anos\nestudante do cotuca responsavel pelo desenvolvimento back',
     cor: 'darkorange',
     imagem: gabrielImg,
   },
   {
     nome: 'Angelina Durigan',
-    descricao: 'descrição\nsobre a pessoa\nsei lá',
+    descricao: '19 anos\nestudante do cotuca reponsavel pelo desenvolvimento front',
     cor: 'blueviolet',
     imagem: linaImg,
   },
