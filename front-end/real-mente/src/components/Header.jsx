@@ -6,9 +6,15 @@ import logo from '../assets/logo.png'
 function Header() {
     return (
         <div className = "header">
-           <Link to = "/home">
+             <div className = "loginCadastroH">
+                <br />
+            <Link to = "/login"><button className = "botaoLogH">ENTRAR</button></Link> 
+            <Link to = "/cadastro"><button className = "botaoCadH">CADASTRE-SE</button></Link> 
+            </div>
+           <Link to = "/">
                 <img src = {logo} alt = "Logo" className = "logo" />
             </Link>  
+           <br />
             <br />
             <Link to = "/quem-somos"><button className = "botaoH">Quem somos?</button></Link> 
             <Link to = "/escolha-seu-destino"><button className = "botaoH">Escolha seu destino</button></Link> 

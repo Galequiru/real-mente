@@ -1,4 +1,4 @@
-.cadastro{
+.login{
     height: 100vh;
     background-color: black;
     justify-content: center;  
@@ -6,34 +6,36 @@
     display: flex;
 }
 
-.cardCadastro{
+.cardLogin{
     font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
     background-color: #ca369437;
     border: 2px solid #B50073;
     border-radius: 20px ;
     color: #B50073;
     font-size: x-large;
-    width: 1000px;
-    height: 800px;
+    width: 800px;
+    height: 600px;
     font-weight:1000;
     text-align: center;
     border-radius: 10px;
 }
 
-.linhaC {
+.linhaL {
     border: none;  
     height: 1px; 
     background-color: #B50073;
     width: 450px;    
 }
 
-.cadastrarC{
+.loginL{
     font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
     background-color: #ca369437;
     border: 2px solid #B50073;
     border-radius: 10px;
-    height: 60px;
-    width: 210px;
+    height: 50px;
+    width: 200px;
+    display: block;
+    margin: 0 auto;
     background-color: #ca369437;
     color: #B50073;
     font-size: x-large;
@@ -41,73 +43,44 @@
     transition: transform 0.3s ease;
 }
 
-.cadastrarC:hover{
+.loginL:hover{
     transform: scale(1.05);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.355);
-
 }
 
-.usuarioC{
-    height: 35px;
-    width: 400px;
-    border: 2px solid #B50073;
-    border-radius: 8px;
-    background-color: #ca369437;
-    font-size: large;
-    color: white;
-    font-weight:580;
-}
-
-.emailC{
-    height: 35px;
-    width: 400px;
-    border: 2px solid #B50073;
-    border-radius: 8px;
-    background-color: #ca369437;
-    font-size: large;
-    color: white;
-    font-weight:580;
-}
-
-.usuario{
-    margin-left: -300px;
-}
-
-.email{
-    margin-left: -320px;
-}
-
-.senha{
-    margin-left: -340px;
-}
-
-.senhaC{
+.senhaL{
     height: 35px;
     width:400px;
     border: 2px solid #B50073;
     border-radius: 8px;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
     background-color: #ca369437;
     font-size: large;
     color: white;
     font-weight:580;
 }
 
-.confSenha{
+.emailUsuL{
+    height: 35px;
+    width:400px;
+    border: 2px solid #B50073;
+    border-radius: 8px;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #ca369437;
+    font-size: large;
+    color: white;
+    font-weight:580;
+}
+
+.emailUsu{
     margin-left: -200px;
 }
 
-.confSenhaC{
-    height: 35px;
-    width:400px;
-    border: 2px solid #B50073;
-    border-radius: 8px;
-    background-color: #ca369437;
-    font-size: large;
-    color: white;
-    font-weight:580;
+.senhal{
+    margin-left: -330px;
 }
 
-.logC{
+.cadL{
     color: #B50073;
     font-size: 18px;
 }

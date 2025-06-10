@@ -8,14 +8,16 @@ import Cadastro from './pages/cadastro/Cadastro'
 import EscolhaDestino from './pages/escolhaDestino/EscolhaDestino'
 import QuemSomos from './pages/quemSomos/QuemSomos'
 import ComoFunciona from './pages/comoFunciona/ComoFunciona'
+import Login from './pages/login/Login'
 
 function App() {
     return(
         <Router>
             <Routes>
 
-      <Route path="/" element={<Cadastro />} />
-      <Route path="/home" element={
+      <Route path="/cadastro" element={<Cadastro />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/" element={
         <>
           <Header />
           <Home />

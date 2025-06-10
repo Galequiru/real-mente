@@ -1,67 +1,82 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Cadastro.css'
+import { Link } from 'react-router-dom'
 
 function Cadastro() {
+  const [usuario, setUsuario] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [confirmarSenha, setConfirmarSenha] = useState('');
+
+  const handleCadastrar = async (evento) => {
+    evento.preventDefault();
+    if (senha !== confirmarSenha) {
+      alert("As duas senhas não coincidem :/");
+      return;
+    }
+
+    const payload = {
+      "nome": usuario,
+      "email": email,
+      "senha": senha
+    }
+
+    await fetch("localhost:8000/auth/register", {
+      method: "post",
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+  };
+
   return (
-    <div className = "card">
-      <div className = "containerCadLog">
-          <div className = "cad"> 
-              <h2>CADASTRE-SE</h2>
-              <label className = "usuario">Usuário:</label>
-              
-              <br />
-              <input type = "text" className = "usuarioC" placeholder = "digite um usuário" required/>
-              <br />
-              <br />
-              <label className = "email">Email:</label>
-              <br />
-              <input type = "text" className = "emailC" placeholder = "digite um email" required/>
-              <br />
-              <br />
-              <label className = "cpf">CPF:</label>
-              <br />
-              <input type = "number" className = "cpfC" placeholder = "digite um CPF" required/>
-              <br />
-              <br />
-              <label className = "telefone">Telefone:</label>
-              <label className = "dataNasc">Data de Nascimento:</label>
-              <br />
-              <input type = "text" className = "telefoneC" placeholder = "(  ) _ _ _ _ _-_ _ _ _" required/>
-              
-              <input type = "date" className = "dataNascC" required/>
-              <br />
-              <br />
-              <label className = "senha">Senha:</label>
-              <br />
-              <input type = "password" className = "senhaC" placeholder = "digite uma senha" required/>
+    <div className = "cadastro">
+      <form onSubmit={handleCadastrar} method="post">
+        <div className = "cardCadastro"> 
+          <br />
+          <h2>CADASTRE-SE</h2>
+          <label className = "usuario">Usuário:</label>
+          <br />
+          <input type = "text" className = "usuarioC" 
+            placeholder = "digite um usuário" 
+            onChange={(e) => setUsuario(e.target.value)}
+            required/>
+          <br />
+          <br />
+          <br />
+          <label className = "email">Email:</label>
+          <br />
+          <input type = "email" className = "emailC" 
+            placeholder = "digite um email" 
+            onChange={(e) => setEmail(e.target.value)}
+            required/>
+          <br />
+          <br />
+          <br />
+          <label className = "senha">Senha:</label>
+          <br />
+          <input type = "password" className = "senhaC"
+            placeholder = "digite uma senha"
+            onChange={(e) => setSenha(e.target.value)}
+            required/>
+          <br />
+          <br />
+          <label className = "confSenha"> Comfirmar senha:</label>
+          <br />
+          <input type = "password" className = "confSenhaC" 
+            placeholder = "digite uma senha"
+            onChange={(e) => setConfirmarSenha(e.target.value)}
+            required/>
+          <br />
+          <br />
+          <hr className = "linhaC" />
+          <br />
+          <button className = "cadastrarC">CADASTRAR</button>
 
-              <hr className = "linhaC" />
-              <button className = "cadastrarC">CADASTRAR</button>
-
-
-          </div>
-
-          <div className = "login">
-            <h2>LOGIN</h2>
-            <br />
-            <br />
-            <br />
-            <br />
-            <label className = "emailUsu">Email ou Usúario:</label>
-            <br />
-            <input type = "text" className = "emailUsuL" placeholder = "digite seu email" required/>
-            <br />
-            <br />
-            
-            <label className = "senha">Senha:</label>
-            <br />
-            <input type = "password" className = "senhaL" placeholder = "digite sua senha" required/>
-
-            <hr className = "linhaC" />
-            <button className = "loginC">LOGIN</button>
-
-          </div>
-      </div>
+          <Link to = "/login"><p className = "logC">já tem conta? entre aqui :)</p></Link> 
+        </div>
+      </form>
     </div>
   )
 }

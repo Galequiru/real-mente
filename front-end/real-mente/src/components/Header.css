@@ -42,4 +42,40 @@
     width: 1900px;    
 }
 
+.botaoCadH{
+    border-radius: 6px;
+    width: 120px;
+    height: 30px;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    border: 2px solid #B50073;
+    background-color: #d62a97b5;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight:1000;
+    transition: transform 0.3s ease;
+}
 
+.botaoCadH:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.355);
+}
+.botaoLogH{
+    border-radius: 6px;
+    width: 100px;
+    height: 30px;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #ca369437;
+    border: 2px solid #B50073;
+    color: #B50073;
+    font-weight:1000;
+    transition: transform 0.3s ease;
+}
+
+.botaoLogH:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.355);
+}
+
+.loginCadastroH{
+    margin-left: 1688px;
+}
