@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './Cadastro.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
-function Cadastro() {
+function Cadastro(props) {
+  const navigate = useNavigate()
   const [usuario, setUsuario] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -19,20 +20,27 @@ function Cadastro() {
       "nome": usuario,
       "email": email,
       "senha": senha
-    }
+    };
 
-    await fetch("localhost:8000/auth/register", {
+    const response = await fetch("http://localhost:8000/auth/register", {
       method: "post",
       headers: {
         'Content-type': 'application/json'
       },
       body: JSON.stringify(payload)
-    })
+    });
+
+    if (response.status === 409) {
+      alert("Este email já está cadastrado, faça login");
+      return navigate('/login');
+    }
+    props.atualizarUsuario(usuario);
+    return navigate('/');
   };
 
   return (
     <div className = "cadastro">
-      <form onSubmit={handleCadastrar} method="post">
+      <form onSubmit={handleCadastrar}>
         <div className = "cardCadastro"> 
           <br />
           <h2>CADASTRE-SE</h2>
@@ -62,7 +70,7 @@ function Cadastro() {
             required/>
           <br />
           <br />
-          <label className = "confSenha"> Comfirmar senha:</label>
+          <label className = "confSenha"> Confirmar senha:</label>
           <br />
           <input type = "password" className = "confSenhaC" 
             placeholder = "digite uma senha"
@@ -73,7 +81,6 @@ function Cadastro() {
           <hr className = "linhaC" />
           <br />
           <button className = "cadastrarC">CADASTRAR</button>
-
           <Link to = "/login"><p className = "logC">já tem conta? entre aqui :)</p></Link> 
         </div>
       </form>

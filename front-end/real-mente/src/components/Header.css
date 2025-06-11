@@ -77,5 +77,8 @@
 }
 
 .loginCadastroH{
-    margin-left: 1688px;
+    padding: 30px;
+    gap: 10px;
+    display: flex;
+    justify-content: right;
 }

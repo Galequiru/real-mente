@@ -1,61 +1,37 @@
-import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
 
 import Home from './pages/home/Home'
-import Header from './components/Header'
-import Footer from './components/Footer'
 import Cadastro from './pages/cadastro/Cadastro'
 import EscolhaDestino from './pages/escolhaDestino/EscolhaDestino'
 import QuemSomos from './pages/quemSomos/QuemSomos'
 import ComoFunciona from './pages/comoFunciona/ComoFunciona'
 import Login from './pages/login/Login'
+import MainLayout from './components/MainLayout'
 
 function App() {
-    return(
-        <Router>
-            <Routes>
+  const [usuario, setUsuario] = useState("")
 
-      <Route path="/cadastro" element={<Cadastro />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/" element={
-        <>
-          <Header />
+  return (
+    <Routes>
+      <Route element={<MainLayout usuario={usuario} />}>
+        <Route path="/" element={
           <Home />
-          
-          <Footer />
-          </>
-          } />
-          
-         <Route path="/escolha-seu-destino" element={
-              <>
-                <Header />
-                <EscolhaDestino />
-                
-                <Footer />
-              </>
-          } />
-
-         <Route path="/quem-somos" element={
-                <>
-                  <Header />
-                  <QuemSomos />
-                  
-                  <Footer />
-                </>
-          } />
-
-           <Route path="/como-funciona" element={
-                          <>
-                            <Header />
-                            <ComoFunciona />
-                            
-                            <Footer />
-                          </>
-            } />
-
+        } />
+        <Route path="/escolha-seu-destino" element={
+          <EscolhaDestino />
+        } />
+        <Route path="/quem-somos" element={
+          <QuemSomos />
+        } />
+        <Route path="/como-funciona" element={
+          <ComoFunciona />
+        } />
+      </Route>
+      <Route path="/cadastro" element={<Cadastro atualizarUsuario={setUsuario}/>} />
+      <Route path="/login" element={<Login atualizarUsuario={setUsuario} />} />
     </Routes>
-        </Router>
-    )
+  )
 }
 
 export default App
