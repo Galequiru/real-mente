@@ -3,13 +3,20 @@
     background-color: black;
 }
 
+.menuTelas {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
 .botaoH{
     font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
     background-color: #000000;
     border: none;
     font-size:29px;
-    margin-left: 110px;
-    margin-right: 110px;
     color: #B50073;
     background-color: black;
     font-weight: 1000;
@@ -36,10 +43,11 @@
 }
 
 .linhaH {
-    border: none;  
-    height: 1.4px; 
+    margin-top: 30px;
+    border: none;
+    height: 1.4px;
     background-color: #5A12E4;
-    width: 1900px;    
+    width: 100%;
 }
 
 .botaoCadH{
