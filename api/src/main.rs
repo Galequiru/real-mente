@@ -5,16 +5,17 @@ mod routes;
 use rocket::{launch, routes};
 use rocket_db_pools::Database;
 
-use routes::{proveedores, materias};
+use routes::{proveedores, materias, auth};
 
 #[launch]
 fn rocket() -> _ {
     rocket::build()
     .attach(db::MainDatabase::init())
     .mount(
-        "/login", 
+        "/auth", 
         routes![
-            proveedores::authenticate
+            auth::register,
+            auth::login
         ]
     )
     .mount(

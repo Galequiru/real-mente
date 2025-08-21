@@ -1,5 +1,6 @@
 pub mod proveedores;
 pub mod materias;
+pub mod auth;
 
 use rocket::{
     get, post, put, delete,
