@@ -14,7 +14,9 @@ function App() {
 
   return (
     <Routes>
-      <Route element={<MainLayout usuario={usuario} />}>
+      <Route element={
+        <MainLayout usuario={usuario} />
+      }>
         <Route path="/" element={
           <Home />
         } />
@@ -28,6 +30,7 @@ function App() {
           <ComoFunciona />
         } />
       </Route>
+      {/* Rotas para cadastro e login fora do layout principal */}
       <Route path="/cadastro" element={<Cadastro atualizarUsuario={setUsuario}/>} />
       <Route path="/login" element={<Login atualizarUsuario={setUsuario} />} />
     </Routes>
