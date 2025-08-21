@@ -8,6 +8,7 @@ import QuemSomos from './pages/quemSomos/QuemSomos'
 import ComoFunciona from './pages/comoFunciona/ComoFunciona'
 import Login from './pages/login/Login'
 import MainLayout from './components/MainLayout'
+import PlanosParaCompra from './pages/planosParaCompra/PlanosParaCompra'
 
 function App() {
   const [usuario, setUsuario] = useState("")
@@ -22,6 +23,9 @@ function App() {
         } />
         <Route path="/escolha-seu-destino" element={
           <EscolhaDestino />
+        } />
+        <Route path='/planos-para-compra' element={
+          <PlanosParaCompra />
         } />
         <Route path="/quem-somos" element={
           <QuemSomos />

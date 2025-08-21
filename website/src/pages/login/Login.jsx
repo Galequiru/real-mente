@@ -64,7 +64,7 @@ function Login(props) {
           <br />
           <button className = "loginL">LOGIN</button>
           <br />
-          <Link to = "/cadastro"><p className = "cadL">não tem conta ainda? :( crie uma conta aqui</p></Link> 
+          <Link to = "/cadastro"><p className = "cadL">não tem conta ainda? :( crie uma conta aqui</p></Link>
         </div>
       </form>
     </div>
