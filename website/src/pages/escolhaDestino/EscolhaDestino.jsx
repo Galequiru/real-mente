@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import './EscolhaDestino.css'
 
 const EscolhaDestino = () => {
@@ -12,31 +12,74 @@ const EscolhaDestino = () => {
     cardsRef.current.scrollBy({ left: 250, behavior: 'smooth' })
   }
 
+  const [materia, setMateria] = useState('');
+  const [materias, setMaterias] = useState([]);   // store the API response
+  const [loading, setLoading] = useState(true);  // show loading state
+  const [error, setError] = useState(null);  // store errors
+
+  useEffect(() => {
+    // make the request when the page loads
+    fetch("http://localhost:8000/materias/get/")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((json) => {
+        setMaterias(json['data']);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []); // empty dependency array means run once on mount
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
     <div className="escolhaDestino">
-      <label htmlFor="materia" className="selecaoDest">Selecione um módulo:</label>
+      <label htmlFor="materia" className="selecaoDest">Selecione uma Matéria:</label>
 
-      <select id="materia" className="selecaoDestInput" defaultValue="modulos">
-        <option value="modulos" disabled>Módulos</option>
-        <option value="humanas">Humanas</option>
-        <option value="exatas">Exatas</option>
-        <option value="biologicas">Biológicas</option>
-        <option value="arte">Arte</option>
+      <select id="materia" className="selecaoDestInput" defaultValue=""
+        onChange={(e) => setMateria(e.target.value)}
+      >
+        <option value="">Todas</option>
+        {materias.map((materia) => // cria uma option no select para cada matéria
+          <option value={materia['nome']}>{materia['nome']}</option>
+        )}
       </select>
         <br />
         <br />
-      <label className="subtitulo">Cenários Recomendados:</label>
+      <label className="subtitulo">Cenários presentes:</label>
       <br />
       <br />
       <br />
       <div className="carrossel">
         <button className="arrow" onClick={scrollLeft}>❮</button>
         <div className="cardsDest" ref={cardsRef}>
-          <div className="cardDest">Cenário 1</div>
-          <div className="cardDest">Cenário 2</div>
-          <div className="cardDest">Cenário 3</div>
-          <div className="cardDest">Cenário 4</div>
-          <div className="cardDest">Cenário 5</div>
+          {materia === ''
+            // se nao houver uma materia escolhida
+            ? materias.map(m =>
+              // cria um card para cada cenario de cada materia
+              m['cenarios'].map(cenario =>
+                <div className='cardDest'>
+                  {cenario}
+                </div>
+              )
+            )
+            // encontra os cenarios da materia escolhida
+            : materias.find(
+              (m) => m['nome'] === materia
+            )['cenarios'].map(cenario =>
+              // cria um card para cada cenario da matéria
+              <div className='cardDest'>
+                {cenario}
+              </div>
+            )
+          }
         </div>
         <button className="arrow" onClick={scrollRight}>❯</button>
       </div>
