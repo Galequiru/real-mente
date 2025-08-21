@@ -4,13 +4,16 @@ mod routes;
 
 use rocket::{launch, routes};
 use rocket_db_pools::Database;
+use rocket_cors::CorsOptions;
 
 use routes::{proveedores, materias, auth};
 
 #[launch]
 fn rocket() -> _ {
+    let cors = CorsOptions::default().to_cors().unwrap();
     rocket::build()
     .attach(db::MainDatabase::init())
+    .attach(cors)
     .mount(
         "/auth", 
         routes![
