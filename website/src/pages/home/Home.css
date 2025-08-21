@@ -1,31 +1,9 @@
-.home{
-    justify-content: space-around;
-    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
-    background-color: #000000;
-    color: #ffffff;
-    font-size: x-large;  
-    height: 80vh;
-    font-weight:1000;
-    margin-top: -8px;
-    margin-bottom: -10px;
-
-}
-
-.texto{
-    text-align: center;
-    width: 600px;
-    height: 200px;
-    background-color: #000000;
-    margin: auto;
-}
 
 .info{
-    margin-top: -100px ;
     text-align: center;
     width: 600px;
     height: 500px;
     background-color: #000000;
-    margin: auto;
 }
 
 .infoBox{
@@ -33,5 +11,4 @@
     height: 420px;
     background-color: #ccc;
     border-radius: 10px;
-    margin-left: -70px;
 }
