@@ -41,6 +41,7 @@ function Login(props) {
           <br />
           <h2>LOGIN</h2>
           <br />
+          <div className = "containsEmailSenha">
           <label className = "emailUsu">Email:</label>
           <br />
           <input type = "text" className = "emailUsuL"
@@ -57,10 +58,12 @@ function Login(props) {
             onChange={(e) => setSenha(e.target.value)}
             required/>
           <br />
+          </div>
           <br />
           <hr className = "linhaL" />
           <br />
           <button className = "loginL">LOGIN</button>
+          <br />
           <Link to = "/cadastro"><p className = "cadL">não tem conta ainda? :( crie uma conta aqui</p></Link> 
         </div>
       </form>

@@ -4,6 +4,7 @@
     justify-content: center;  
     align-items: center;
     display: flex;
+    
 }
 
 .cardLogin{
@@ -13,11 +14,16 @@
     border-radius: 20px ;
     color: #B50073;
     font-size: x-large;
-    width: 800px;
-    height: 600px;
+    width:auto;
+    height:auto;
     font-weight:1000;
     text-align: center;
     border-radius: 10px;
+    padding: 50px;
+}
+
+.containsEmailSenha{
+    text-align: left;
 }
 
 .linhaL {
@@ -72,13 +78,9 @@
     font-weight:580;
 }
 
-.emailUsu{
-    margin-left: -200px;
-}
 
-.senhal{
-    margin-left: -330px;
-}
+
+
 
 .cadL{
     color: #B50073;

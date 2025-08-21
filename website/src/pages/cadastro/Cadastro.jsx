@@ -44,6 +44,8 @@ function Cadastro(props) {
         <div className = "cardCadastro"> 
           <br />
           <h2>CADASTRE-SE</h2>
+          <br />
+          <div className = "containsInfo">
           <label className = "usuario">Usuário:</label>
           <br />
           <input type = "text" className = "usuarioC" 
@@ -52,14 +54,12 @@ function Cadastro(props) {
             required/>
           <br />
           <br />
-          <br />
           <label className = "email">Email:</label>
           <br />
           <input type = "email" className = "emailC" 
             placeholder = "digite um email" 
             onChange={(e) => setEmail(e.target.value)}
             required/>
-          <br />
           <br />
           <br />
           <label className = "senha">Senha:</label>
@@ -77,10 +77,13 @@ function Cadastro(props) {
             onChange={(e) => setConfirmarSenha(e.target.value)}
             required/>
           <br />
+          </div>
           <br />
           <hr className = "linhaC" />
           <br />
           <button className = "cadastrarC">CADASTRAR</button>
+          <br />
+          <br />
           <Link to = "/login"><p className = "logC">já tem conta? entre aqui :)</p></Link> 
         </div>
       </form>
