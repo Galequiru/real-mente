@@ -1,24 +1,18 @@
 .escolhaDestino{
-    flex-direction: column;
     align-items: center;
     font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
     background-color: #000000;
     color: #ffffff;
     font-size: x-large;
-    height: 80vh;
     font-weight: 1000;
-    margin-top: -8px;
-    margin-bottom: -10px;
-    padding: 2rem;
-    box-sizing: border-box;
 }
-  
+
 .selecaoDest{
     font-size: large;
     margin-right: 10px;
     font-weight: bold;
 }
-  
+
 .selecaoDestInput{
     color: rgb(255, 255, 255);
     font-weight: bold;
@@ -30,14 +24,14 @@
     font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
     background-color: #ca369437;
     font-size: large;
-   
+
 }
-  
+
 .subtitulo{
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
 }
-  
+
 .carrossel{
     display: flex;
     align-items: center;
@@ -47,7 +41,7 @@
     max-width: 90vw;
     overflow: hidden;
 }
-  
+
 .arrow{
     background: none;
     color: white;
@@ -57,11 +51,11 @@
     transition: transform 0.2s ease;
     z-index: 1;
 }
-  
+
 .arrow:hover{
     transform: scale(1.2);
 }
-  
+
 .cardsDest{
     display: flex;
     gap: 1rem;
@@ -70,11 +64,11 @@
     padding: 1rem 0;
     max-width: 100%;
 }
-  
+
 .cardsDest::-webkit-scrollbar{
     display: none;
 }
-  
+
 .cardDest{
     flex: 0 0 auto;
     width: 440px;
@@ -89,8 +83,7 @@
     font-size: 1.4rem;
     transition: transform 0.3s;
 }
-  
+
 .cardDest:hover{
     transform: scale(1.05);
 }
-  
