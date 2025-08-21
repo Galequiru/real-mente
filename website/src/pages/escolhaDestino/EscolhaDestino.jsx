@@ -53,10 +53,7 @@ const EscolhaDestino = () => {
       </select>
         <br />
         <br />
-      <label className="subtitulo">Cenários presentes:</label>
-      <br />
-      <br />
-      <br />
+      <p className="subtitulo">Cenários presentes:</p>
       <div className="carrossel">
         <button className="arrow" onClick={scrollLeft}>❮</button>
         <div className="cardsDest" ref={cardsRef}>
