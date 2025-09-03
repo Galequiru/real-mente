@@ -21,9 +21,16 @@ pub struct Proveedor {
 
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(crate = "rocket::serde")]
+pub struct Cenario {
+    pub nome: String,
+    pub slug: String
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+#[serde(crate = "rocket::serde")]
 pub struct Materia {
     #[serde(rename = "_id", skip_serializing_if = "Option::is_none")]
     pub id: Option<ObjectId>,
     pub nome: String,
-    pub cenarios: Vec<String>
+    pub cenarios: Vec<Cenario>
 }
