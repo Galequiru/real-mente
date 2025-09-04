@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { calcularPrecoPacote } from '../helpers'
 import './LinhaOfertasMateria.css'
 
 /**
@@ -9,13 +10,14 @@ import './LinhaOfertasMateria.css'
  */
 export default function LinhaOfertasMateria({
 	materia: {
-		nome, slug, cenarios
+		slug, cenarios
 	}
 }) {
+	const valorPacote = calcularPrecoPacote(...cenarios.map(c => c.price))
 	return <>
 		<div className='linhaOfertas'>
 			<div className='cardMateria'>
-				<div className='textoMateria'>{nome}</div>
+				<div className='textoMateria'>{`R$${valorPacote}`}</div>
 				<Link to={`/${slug}`}>Saiba mais</Link>
 			</div>
 			<div className='coluna'>

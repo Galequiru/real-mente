@@ -8,6 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
  * @typedef {Object} Cenario
  * @property {string} nome
  * @property {string} slug
+ * @property {number} price
  */
 
 /**
