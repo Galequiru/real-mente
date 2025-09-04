@@ -43,3 +43,4 @@ packages/react-devtools-timeline/dist
 Rocket.toml
 *.http
 target/
+.env
