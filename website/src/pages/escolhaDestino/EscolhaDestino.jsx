@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import { useRef, useState } from 'react'
 import './EscolhaDestino.css'
 import CardDestino from '../../components/CardDestino'
 
@@ -8,7 +8,18 @@ import CardDestino from '../../components/CardDestino'
  * @property {string} slug
  */
 
-const EscolhaDestino = () => {
+/**
+ * @param {{
+ *  materias: {
+ *    nome: string,
+ *    slug: string,
+ *    cenarios: Cenario[]
+ *  }[]
+ * }}
+ */
+const EscolhaDestino = ({
+  materias
+}) => {
   const cardsRef = useRef(null)
 
   const scrollLeft = () => {
@@ -20,38 +31,11 @@ const EscolhaDestino = () => {
   }
 
   const [materia, setMateria] = useState('');
-  const [materias, setMaterias] = useState([]);   // store the API response
-  const [loading, setLoading] = useState(true);  // show loading state
-  const [error, setError] = useState(null);  // store errors
+  const materiaSelecionada = materias.find(m => m.nome === materia);
 
-  useEffect(() => {
-    // make the request when the page loads
-    fetch("http://localhost:8000/materias/get/")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((json) => {
-        setMaterias(json['data']);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []); // empty dependency array means run once on mount
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-
-  /**
-   * @type {Cenario[]}
-   */
-  const cenarios = materia === ''
-  ? materias.flatMap(m => m['cenarios'])
-  : materias.find(m => m['nome'] === materia)['cenarios'] || []
+  const cenarios = materiaSelecionada
+  ? materiaSelecionada.cenarios.map(c => ({ ...c, materiaSlug: materiaSelecionada.slug}))
+  : materias.flatMap(m => m.cenarios.map(c => ({ ...c, materiaSlug: m.slug})))
 
   return (
     <div className="escolhaDestino">
@@ -62,7 +46,7 @@ const EscolhaDestino = () => {
       >
         <option value="">Todas</option>
         {materias.map((materia) => // cria uma option no select para cada matéria
-          <option value={materia['nome']}>{materia['nome']}</option>
+          <option key={materia.slug} value={materia['nome']}>{materia['nome']}</option>
         )}
       </select>
         <br />
@@ -72,7 +56,7 @@ const EscolhaDestino = () => {
         <button className="arrow" onClick={scrollLeft}>❮</button>
         <div className="cardsDest" ref={cardsRef}>
           {cenarios.map(cenario =>
-            <CardDestino cenario={cenario}/>
+            <CardDestino key={cenario.slug} cenario={cenario}/>
           )}
         </div>
         <button className="arrow" onClick={scrollRight}>❯</button>

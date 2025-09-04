@@ -6,15 +6,18 @@ import "./CardDestino.css"
  * @param {{
  * 	cenario: {
  *		nome: string,
- *		slug: string
- * 	}
+ *		slug: string,
+ * 		materiaSlug: string,
+ * 	},
  * }}
  */
-export default function CardDestino({cenario: {
-	nome, slug
-}}) {
+export default function CardDestino({
+	cenario: {
+		nome, slug, materiaSlug
+	},
+}) {
 	return <>
-		<Link to={`/${slug}`}>
+		<Link to={`/${materiaSlug}/${slug}`}>
 		<div className="cardDestino">
 			{nome}
 		</div>
