@@ -32,5 +32,6 @@ pub struct Materia {
     #[serde(rename = "_id", skip_serializing_if = "Option::is_none")]
     pub id: Option<ObjectId>,
     pub nome: String,
+    pub slug: String,
     pub cenarios: Vec<Cenario>
 }
