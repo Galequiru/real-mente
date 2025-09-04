@@ -9,8 +9,8 @@ import ComoFunciona from './pages/comoFunciona/ComoFunciona'
 import Login from './pages/login/Login'
 import MainLayout from './components/MainLayout'
 import PlanosParaCompra from './pages/planosParaCompra/PlanosParaCompra'
-import Materia from './pages/materia/Materia'
-import Cenario from './pages/cenario/Cenario'
+import PaginaMateria from './pages/paginaMateria/PaginaMateria'
+import PaginaCenario from './pages/paginaCenario/PaginaCenario'
 
 /**
  * @typedef {Object} Cenario
@@ -81,12 +81,12 @@ function App() {
         materias.map(materia =>
           <Route key={materia.slug} path={`/${materia.slug}`} >
             <Route index element={
-              <Materia materia={materia} />
+              <PaginaMateria materia={materia} />
             } />
             { // cada cenario tem seu link aninhado em sua materia
             materia.cenarios.map(cenario =>
               <Route key={cenario.slug} path={`/${materia.slug}/${cenario.slug}`} element={
-                <Cenario materia={materia} cenario={cenario} />
+                <PaginaCenario materia={materia} cenario={cenario} />
               } />
             )}
           </Route>

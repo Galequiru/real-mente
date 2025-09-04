@@ -1,6 +1,6 @@
 import React, {  } from "react";
 
-export default function Materia({
+export default function PaginaMateria({
 	materia
 }) {
 	return <>
