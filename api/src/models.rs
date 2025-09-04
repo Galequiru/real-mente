@@ -23,7 +23,8 @@ pub struct Proveedor {
 #[serde(crate = "rocket::serde")]
 pub struct Cenario {
     pub nome: String,
-    pub slug: String
+    pub slug: String,
+    pub price: f64,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
