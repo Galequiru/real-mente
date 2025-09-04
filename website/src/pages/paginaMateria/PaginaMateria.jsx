@@ -15,6 +15,43 @@ export default function PaginaMateria({
 	}
 }) {
 	const preco = calcularPrecoPacote(...cenarios.map(c => c.price))
+
+	/** @param {SubmitEvent} e */
+	async function handleSubmit(e) {
+		e.preventDefault();
+
+		const payload = {
+			"cenarios": cenarios.map(c => c.slug),
+			"price": preco,
+			"title": nome,
+		};
+		try {
+			const res = await fetch("http://localhost:8000/payments/create_payment", {
+				method: "post",
+				headers: {
+					'Content-type': 'application/json'
+				},
+				body: JSON.stringify(payload)
+			});
+
+			const data = await res.text().then(text => {
+				try {
+					return JSON.parse(text)
+				} catch {
+					throw new Error(text)
+				}
+			})
+
+			// erro ao mandar pagamento para a api
+			if (data['status'] === 'error')
+				throw new Error(data['message']);
+
+			window.location.href = data['data']['init_point'];
+		} catch (error) {
+			alert("Tivemos um problema ao processar seu pedido: "+error.message);
+		}
+	}
+
 	return <>
 		<h2>{nome}</h2>
 		<div className="conteudoMateria">
@@ -32,10 +69,7 @@ export default function PaginaMateria({
 				<div className="imagem">
 
 				</div>
-				<form action="http://localhost:8000/payments/create_payment" method="post">
-					<input type="hidden" name="cenarios" value={cenarios.map(c => c.slug)} />
-					<input type="hidden" name="price" value={preco} />
-					<input type="hidden" name="title" value={nome} />
+				<form onSubmit={handleSubmit}>
 					<button type="submit">Compre o Pacote desta matéria</button>
 				</form>
 			</section>
