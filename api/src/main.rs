@@ -6,7 +6,7 @@ use rocket::{launch, routes};
 use rocket_db_pools::Database;
 use rocket_cors::CorsOptions;
 
-use routes::{proveedores, materias, auth};
+use routes::{proveedores, materias, auth, payments};
 
 #[launch]
 fn rocket() -> _ {
@@ -15,7 +15,7 @@ fn rocket() -> _ {
     .attach(db::MainDatabase::init())
     .attach(cors)
     .mount(
-        "/auth", 
+        "/auth",
         routes![
             auth::register,
             auth::login
@@ -39,6 +39,12 @@ fn rocket() -> _ {
             materias::get_by_id,
             materias::update,
             materias::delete
+        ]
+    )
+    .mount(
+        "/payments",
+        routes![
+            payments::create_payment
         ]
     )
 }
