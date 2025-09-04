@@ -3,18 +3,9 @@ import './EscolhaDestino.css'
 import CardDestino from '../../components/CardDestino'
 
 /**
- * @typedef {Object} Cenario
- * @property {string} nome
- * @property {string} slug
- */
-
-/**
+ * @import { Materia } from '../../index'
  * @param {{
- *  materias: {
- *    nome: string,
- *    slug: string,
- *    cenarios: Cenario[]
- *  }[]
+ *  materias: Materia[]
  * }}
  */
 const EscolhaDestino = ({

@@ -1,13 +1,11 @@
-import React, {  } from "react";
 import { Link } from "react-router-dom";
 import "./CardDestino.css"
 
 /**
+ * @import { Cenario } from '../index'
  * @param {{
- * 	cenario: {
- *		nome: string,
- *		slug: string,
- * 		materiaSlug: string,
+ * 	cenario: Cenario & {
+ * 		materiaSlug: string
  * 	},
  * }}
  */

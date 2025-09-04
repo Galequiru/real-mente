@@ -12,18 +12,7 @@ import PlanosParaCompra from './pages/planosParaCompra/PlanosParaCompra'
 import PaginaMateria from './pages/paginaMateria/PaginaMateria'
 import PaginaCenario from './pages/paginaCenario/PaginaCenario'
 
-/**
- * @typedef {Object} Cenario
- * @property {string} nome
- * @property {string} slug
- */
-
-/**
- * @typedef {Object} Materia
- * @property {string} nome
- * @property {string} slug
- * @property {Cenario[]} cenarios
- */
+/** @import {Materia} from './index' */
 
 function App() {
   const [usuario, setUsuario] = useState("")
