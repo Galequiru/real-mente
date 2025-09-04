@@ -1,5 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react'
 import './EscolhaDestino.css'
+import CardDestino from '../../components/CardDestino'
+
+/**
+ * @typedef {Object} Cenario
+ * @property {string} nome
+ * @property {string} slug
+ */
 
 const EscolhaDestino = () => {
   const cardsRef = useRef(null)
@@ -39,6 +46,13 @@ const EscolhaDestino = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
+  /**
+   * @type {Cenario[]}
+   */
+  const cenarios = materia === ''
+  ? materias.flatMap(m => m['cenarios'])
+  : materias.find(m => m['nome'] === materia)['cenarios'] || []
+
   return (
     <div className="escolhaDestino">
       <label htmlFor="materia" className="selecaoDest">Selecione uma Matéria:</label>
@@ -57,26 +71,9 @@ const EscolhaDestino = () => {
       <div className="carrossel">
         <button className="arrow" onClick={scrollLeft}>❮</button>
         <div className="cardsDest" ref={cardsRef}>
-          {materia === ''
-            // se nao houver uma materia escolhida
-            ? materias.map(m =>
-              // cria um card para cada cenario de cada materia
-              m['cenarios'].map(cenario =>
-                <div className='cardDest'>
-                  {cenario}
-                </div>
-              )
-            )
-            // encontra os cenarios da materia escolhida
-            : materias.find(
-              (m) => m['nome'] === materia
-            )['cenarios'].map(cenario =>
-              // cria um card para cada cenario da matéria
-              <div className='cardDest'>
-                {cenario}
-              </div>
-            )
-          }
+          {cenarios.map(cenario =>
+            <CardDestino cenario={cenario}/>
+          )}
         </div>
         <button className="arrow" onClick={scrollRight}>❯</button>
       </div>

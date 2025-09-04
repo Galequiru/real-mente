@@ -73,22 +73,3 @@ option {
 .cardsDest::-webkit-scrollbar{
     display: none;
 }
-
-.cardDest{
-    flex: 0 0 auto;
-    width: 440px;
-    height: 580px;
-    background-color: #d3d3d3;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #333;
-    font-weight: bold;
-    font-size: 1.4rem;
-    transition: transform 0.3s;
-}
-
-.cardDest:hover{
-    transform: scale(1.05);
-}
