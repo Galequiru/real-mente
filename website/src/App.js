@@ -58,7 +58,7 @@ function App() {
           <EscolhaDestino materias={materias} />
         } />
         <Route path='/planos-para-compra' element={
-          <PlanosParaCompra />
+          <PlanosParaCompra materias={materias} />
         } />
         <Route path="/quem-somos" element={
           <QuemSomos />
