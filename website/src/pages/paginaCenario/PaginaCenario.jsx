@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 /**
  * @import {Materia, Cenario} from '../../index'
@@ -11,6 +12,7 @@ export default function PaginaCenario({
 	materia, cenario
 }) {
 	return <>
-		{cenario.nome}
+		<h2><Link to={`/${materia.slug}`}>{materia.nome}</Link> ❯ {cenario.nome}</h2>
+
 	</>
 }
