@@ -1,3 +1,4 @@
+import LinhaOfertasMateria from "../../components/LinhaOfertasMateria"
 import "./PlanosParaCompra.css"
 
 /**
@@ -11,21 +12,9 @@ export default function PlanosParaCompra({
 }) {
 	return <>
 		<p className="introducao">Você pode escolher se vai comprar um cenário individual ou todo o pacote de uma matéria!</p>
-		<h2>Cenários individuais:</h2>
-		<div className="ofertas">
-			{materias.map(materia => materia['cenarios'].map(cenario =>
-				<div className="card">
-					{cenario}
-				</div>
-			))}
-		</div>
-		<h2>Comprar por conjunto:</h2>
-		<div className="ofertas">
-			{materias.map(materia =>
-				<div className="card">
-					{materia['nome']}
-				</div>
-			)}
-		</div>
+		{materias.map(materia => <div key={materia.slug}>
+			<h2>{materia.nome}</h2>
+			<LinhaOfertasMateria materia={materia} />
+		</div>)}
 	</>
 }
