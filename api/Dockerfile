@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y libssl-dev ca-certificates && rm -rf /v
 WORKDIR /app
 
 COPY --from=builder /app/target/release/api .
-COPY Rocket.toml .env ./
+COPY Rocket.toml ./
 
 EXPOSE 8000
 
