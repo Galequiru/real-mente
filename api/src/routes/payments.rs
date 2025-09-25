@@ -50,18 +50,8 @@ pub async fn create_payment(
 					}))
 				)
 			},
-			Err(e) => Custom(Status::InternalServerError,
-                Json(json!({
-					"status": "error",
-                    "message": format!("Error reading payment server response: {}", e)
-                }))
-            ),
+			Err(e) => response_from_error(e, "Error reading payment server response"),
 		},
-		Err(e) => Custom(Status::InternalServerError,
-			Json(json!({
-				"status": "error",
-				"message": format!("Error creating payment: {}", e)
-			}))
-		),
+		Err(e) => response_from_error(e, "Error creating payment"),
 	}
 }

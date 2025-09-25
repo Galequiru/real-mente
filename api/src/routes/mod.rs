@@ -3,6 +3,7 @@ pub mod materias;
 pub mod auth;
 pub mod payments;
 
+use std::fmt::Display;
 use rocket::{
     get, post, put, delete,
     futures::TryStreamExt, http::Status,
@@ -15,6 +16,15 @@ use rocket_db_pools::Connection;
 use crate::db::MainDatabase;
 
 const DATABASE: &str = "database";
+
+fn response_from_error<T: Display>(error: T, message: &str) -> Custom<Json<Value>> {
+	Custom(Status::InternalServerError,
+		Json(json!({
+			"status": "error",
+			"message": format!("{message}: {error}")
+		}))
+	)
+}
 
 // using macros to implement the basic CRUD operations
 
@@ -39,14 +49,7 @@ pub async fn add(
                 }))
             )
         },
-        Err(e) => {
-            Custom(Status::InternalServerError,
-                Json(json!({
-                    "status": "error",
-                    "message": format!("Error creating object: {}", e)
-                }))
-            )
-        }
+        Err(e) => response_from_error(e, "Error creating object")
     }
 }}}
 
@@ -71,14 +74,7 @@ pub async fn get_all(
                 }))
             )
         },
-        Err(e) => {
-            Custom(Status::InternalServerError,
-                Json(json!({
-                    "status": "error",
-                    "message": format!("Error reading data: {}", e)
-                }))
-            )
-        }
+        Err(e) => response_from_error(e, "Error reading data")
     }
 }}}
 
@@ -121,14 +117,7 @@ pub async fn get_by_id (
                 }))
             )
         },
-        Err(e) => {
-            Custom(Status::InternalServerError,
-                Json(json!({
-                    "status": "error",
-                    "message": format!("Error reading data: {}", e)
-                }))
-            )
-        }
+        Err(e) => response_from_error(e, "Error reading data")
     }
 }}}
 
@@ -179,14 +168,7 @@ pub async fn update(
                 )
             }
         },
-        Err(e) => {
-            Custom(Status::InternalServerError,
-                Json(json!({
-                    "status": "success",
-                    "message": format!("Error updating object: {}", e)
-                }))
-            )
-        }
+        Err(e) => response_from_error(e, "Error updating object")
     }
 }}}
 
@@ -233,14 +215,7 @@ pub async fn delete(
                 )
             }
         }
-        Err(e) => {
-            Custom(Status::InternalServerError,
-                Json(json!({
-                    "status": "success",
-                    "message": format!("Error deleting object: {}", e)
-                }))
-            )
-        }
+        Err(e) => response_from_error(e, "Error deleting object")
     }
 }}}
 

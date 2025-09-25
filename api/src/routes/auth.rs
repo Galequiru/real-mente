@@ -53,14 +53,7 @@ pub async fn register(
                 }))
             )
         },
-        Err(e) => {
-            Custom(Status::InternalServerError,
-                Json(json!({
-                    "status": "error",
-                    "message": format!("Error registering user: {}", e)
-                }))
-            )
-        }
+        Err(e) => response_from_error(e, "Error registering user")
     }
 }
 
@@ -102,13 +95,6 @@ pub async fn login(
                 }))
             )
         },
-        Err(e) => {
-            Custom(Status::InternalServerError,
-                Json(json!({
-                    "status": "error",
-                    "message": format!("Error authenticating user: {}",e)
-                }))
-            )
-        }
+        Err(e) => response_from_error(e, "Error authenticating user")
     }
 }
