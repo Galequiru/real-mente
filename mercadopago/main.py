@@ -57,11 +57,19 @@ def create_payment(data: PaymentRequest):
 		}, separators=(',', ':'))
 	}))
 
-@app.post('/check_payment/{preference_id}')
-def check_payment(preference_id: str):
-	return from_response(sdk.merchant_order().search({
+@app.post('/get_payment/{preference_id}')
+def get_payment(preference_id: str):
+	payment = sdk.merchant_order().search({
 		'preference_id': preference_id
-	}))
+	})
+
+	# checks if the elements list exists and is not empty
+	if elements := payment['response']['elements']:
+		return JSONResponse(elements[0], 200)
+
+	return JSONResponse({
+		'message': f'No preference for id: {preference_id}'
+	}, 404)
 
 class MercadoPagoResponse(TypedDict):
 	response: Any
