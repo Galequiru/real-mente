@@ -26,6 +26,15 @@ fn response_from_error<T: Display>(error: T, message: &str) -> Custom<Json<Value
 	)
 }
 
+/// helper macro to create a closure that accepts an error and calls response_from_error with it and the given message
+///
+/// basically, fancy currying
+#[macro_export] macro_rules! with_message {
+	($message:literal) => {
+		|e| response_from_error(e, $message)
+	};
+}
+
 // using macros to implement the basic CRUD operations
 
 #[macro_export] macro_rules! impl_create {

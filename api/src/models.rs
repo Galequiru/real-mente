@@ -1,11 +1,21 @@
-use mongodb::bson::oid::ObjectId;
+use mongodb::bson::{doc, oid::ObjectId, Bson};
 use rocket::serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(crate = "rocket::serde")]
-pub struct Codigo {
-    pub codigo: String,
-    pub limite: u8
+pub struct PendingPayment {
+    pub payment_id: String,
+    pub products: Vec<String>
+}
+
+impl Into<Bson> for PendingPayment {
+    fn into(self) -> Bson {
+        let payment_doc = doc! {
+            "payment_id": self.payment_id,
+            "products": self.products,
+        };
+        Bson::Document(payment_doc)
+    }
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -16,7 +26,21 @@ pub struct Proveedor {
     pub email: String,
     pub senha: String,
     pub nome: String,
-    pub codigos: Vec<Codigo>
+    pub pendings: Vec<PendingPayment>,
+    pub cenarios: Vec<String>,
+}
+
+impl Proveedor {
+    pub fn new(email: String, senha: String, nome: String) -> Self {
+        Proveedor {
+            id: None,
+            email: email,
+            senha: senha,
+            nome: nome,
+            pendings: vec![],
+            cenarios: vec![]
+        }
+    }
 }
 
 #[derive(Debug, Serialize, Deserialize)]

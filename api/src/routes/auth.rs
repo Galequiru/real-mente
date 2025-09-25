@@ -37,13 +37,11 @@ pub async fn register(
     }
     let params = data.into_inner();
     match collection
-    .insert_one(Proveedor {
-        id: None,
-        nome: params.nome,
-        email: params.email,
-        senha: params.senha,
-        codigos: vec![]
-    }, None)
+    .insert_one(Proveedor::new(
+        params.email,
+        params.senha,
+        params.nome
+    ), None)
     .await {
         Ok(_) => {
             Custom(Status::Ok,
