@@ -30,6 +30,10 @@ def exception_handler(_: Request, err: Exception):
 		'error': str(err)
 	}, 500)
 
+@app.get('/ping')
+def ping():
+	return JSONResponse('pong')
+
 class PaymentRequest(BaseModel):
 	email: str
 	price: float
