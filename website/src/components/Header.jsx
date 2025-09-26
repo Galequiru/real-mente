@@ -13,7 +13,7 @@ function Header({ usuario }) {
                     <Link to="/cadastro"><button className="botaoCadH">CADASTRE-SE</button></Link>
                 </>
                 : <>
-                    <h1 style={{color: "white"}}>Olá, {usuario}</h1>
+                    <Link to = "perfil"><h1 style={{color: "white"}}>Olá, {usuario}</h1></Link>
                 </>}
             </div>
             <Link to="/">

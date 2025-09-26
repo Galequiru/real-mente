@@ -11,6 +11,7 @@ import MainLayout from './components/MainLayout'
 import PlanosParaCompra from './pages/planosParaCompra/PlanosParaCompra'
 import PaginaMateria from './pages/paginaMateria/PaginaMateria'
 import PaginaCenario from './pages/paginaCenario/PaginaCenario'
+import Perfil from './pages/perfil/Perfil'
 
 /** @import {Materia} from './index' */
 
@@ -65,6 +66,9 @@ function App() {
         } />
         <Route path="/como-funciona" element={
           <ComoFunciona />
+        } />
+        <Route path="/perfil" element={
+          <Perfil usuario={usuario} />
         } />
         { // criando rotas automaticamente atravez da resposta da api
         materias.map(materia =>
