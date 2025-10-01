@@ -41,21 +41,6 @@ impl Proveedor {
             cenarios: vec![]
         }
     }
-    pub pendings: Vec<PendingPayment>,
-    pub cenarios: Vec<String>,
-}
-
-impl Proveedor {
-    pub fn new(email: String, senha: String, nome: String) -> Self {
-        Proveedor {
-            id: None,
-            email: email,
-            senha: senha,
-            nome: nome,
-            pendings: vec![],
-            cenarios: vec![]
-        }
-    }
 }
 
 #[derive(Debug, Serialize, Deserialize)]
