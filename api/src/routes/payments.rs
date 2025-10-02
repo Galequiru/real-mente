@@ -18,7 +18,7 @@ async fn check_existing_product(
 	collection: &Collection<Proveedor>,
 	email: &str,
 	products: &[String],
-) -> Result<(), Custom<Json<Value>>> {
+) -> Result<Proveedor, Custom<Json<Value>>> {
 	let user = collection
 		.find_one(doc! {
 			"email": email,
@@ -47,9 +47,9 @@ async fn check_existing_product(
 			}))
 		))
 	// search on the users's waiting for payment products
-	} else if user.pendings.into_iter().flat_map(|pending| pending.products).any(
-		|cenario| products.contains(&cenario)
-	) {
+	} else if user.pendings.iter().any(|pending| pending.products.iter().any(
+		|cenario| products.contains(cenario)
+	)) {
 		Err(Custom(Status::BadRequest,
 			Json(json!({
 				"status": "error",
@@ -57,32 +57,16 @@ async fn check_existing_product(
 			}))
 		))
 	} else {
-		Ok(())
+		Ok(user)
 	}
 }
 
 async fn register_payment(
 	collection: &Collection<Proveedor>,
+	mut user: Proveedor,
 	payment_id: String,
 	payment_data: ExternalReference
 ) -> Result<Custom<Json<Value>>, Custom<Json<Value>>> {
-	let mut user = collection
-		.find_one(doc! {
-			"email": payment_data.email,
-		}, None)
-		.await
-		// error with database
-		.map_err(
-			with_message!("Error fetching user info")
-		)?
-		// no user found
-		.ok_or_else(|| Custom(Status::NotFound,
-			Json(json!({
-				"status": "error",
-				"message": "User does not exist"
-			}))
-		))?;
-
 	user.pendings.push(PendingPayment {
 		payment_id: payment_id,
 		products: payment_data.products
@@ -131,7 +115,7 @@ pub async fn create_payment(
 		.database(DATABASE)
 		.collection("proveedores");
 
-	check_existing_product(
+	let user = check_existing_product(
 		&collection,
 		&data.email,
 		&data.products
@@ -139,7 +123,7 @@ pub async fn create_payment(
 
 	let client = Client::new();
 	let body = json!({
-		"email": &data.email,
+		"email": data.email,
 		"price": data.price,
 		"title": data.title,
 		"products": data.products
@@ -161,6 +145,7 @@ pub async fn create_payment(
 	if status.is_success() {
 		register_payment(
 			&collection,
+			user,
 			body["id"].as_str().unwrap().to_string(),
 			serde_json::from_str(
 				body["external_reference"].as_str().unwrap()
