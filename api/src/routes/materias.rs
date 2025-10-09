@@ -5,4 +5,4 @@ use crate::{
     models::Materia
 };
 
-impl_crud!(Materia, "materias");
+impl_crud!(Materia, MATERIAS_COLLECTION);

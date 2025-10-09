@@ -1,7 +1,7 @@
 use std::fmt::Debug;
 
 use rocket::serde::{Deserialize, Serialize};
-use crate::models::Proveedor;
+use crate::models::User;
 
 use super::*;
 
@@ -20,7 +20,7 @@ pub async fn register(
 ) -> Custom<Json<Value>> {
     let collection = db
     .database(DATABASE)
-    .collection::<Proveedor>("proveedores");
+    .collection::<User>(USERS_COLLECTION);
 
     // check if a user is registered with that email
     if let Ok(Some(usuario)) = collection
@@ -37,7 +37,7 @@ pub async fn register(
     }
     let params = data.into_inner();
     match collection
-    .insert_one(Proveedor::new(
+    .insert_one(User::new(
         params.email,
         params.senha,
         params.nome
@@ -70,7 +70,7 @@ pub async fn login(
 
     match db
     .database(DATABASE)
-    .collection::<Proveedor>("proveedores")
+    .collection::<User>(USERS_COLLECTION)
     .find_one(doc! {
         "email": data.email.clone(),
         "senha": data.senha.clone()

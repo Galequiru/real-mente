@@ -6,7 +6,7 @@ use rocket::{launch, routes};
 use rocket_db_pools::Database;
 use rocket_cors::CorsOptions;
 
-use routes::{proveedores, materias, auth, payments};
+use routes::{users, materias, auth, payments};
 
 #[launch]
 fn rocket() -> _ {
@@ -22,13 +22,13 @@ fn rocket() -> _ {
         ]
     )
     .mount(
-        "/proveedores",
+        "/users",
         routes![
-            proveedores::add,
-            proveedores::get_all,
-            proveedores::get_by_id,
-            proveedores::update,
-            proveedores::delete
+            users::add,
+            users::get_all,
+            users::get_by_id,
+            users::update,
+            users::delete
         ]
     )
     .mount(

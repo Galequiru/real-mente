@@ -1,4 +1,4 @@
-pub mod proveedores;
+pub mod users;
 pub mod materias;
 pub mod auth;
 pub mod payments;
@@ -16,6 +16,8 @@ use rocket_db_pools::Connection;
 use crate::db::MainDatabase;
 
 const DATABASE: &str = "database";
+const USERS_COLLECTION: &str = "users";
+const MATERIAS_COLLECTION: &str = "materias";
 
 fn response_from_error<T: Display>(error: T, message: &str) -> Custom<Json<Value>> {
 	Custom(Status::InternalServerError,
@@ -30,7 +32,7 @@ fn response_from_error<T: Display>(error: T, message: &str) -> Custom<Json<Value
 ///
 /// basically, fancy currying
 #[macro_export] macro_rules! with_message {
-	($message:literal) => {
+	($message:expr) => {
 		|e| response_from_error(e, $message)
 	};
 }
@@ -38,7 +40,7 @@ fn response_from_error<T: Display>(error: T, message: &str) -> Custom<Json<Value
 // using macros to implement the basic CRUD operations
 
 #[macro_export] macro_rules! impl_create {
-    ($tipo:ty, $collection:literal)  => {
+    ($tipo:ty, $collection:expr)  => {
 
 #[post("/add", data="<data>", format="json")]
 pub async fn add(
@@ -63,7 +65,7 @@ pub async fn add(
 }}}
 
 #[macro_export] macro_rules! impl_get_all {
-    ($tipo:ty, $collection:literal) => {
+    ($tipo:ty, $collection:expr) => {
 
 #[get("/get", format = "json")]
 pub async fn get_all(
@@ -88,7 +90,7 @@ pub async fn get_all(
 }}}
 
 #[macro_export] macro_rules! impl_get_by_id {
-    ($tipo:ty, $collection:literal) => {
+    ($tipo:ty, $collection:expr) => {
 
 #[get("/get/<id>", format="json")]
 pub async fn get_by_id (
@@ -131,7 +133,7 @@ pub async fn get_by_id (
 }}}
 
 #[macro_export] macro_rules! impl_update {
-    ($tipo: ty, $collection: literal) => {
+    ($tipo: ty, $collection: expr) => {
 
 #[put("/update/<id>", data = "<data>", format = "json")]
 pub async fn update(
@@ -182,7 +184,7 @@ pub async fn update(
 }}}
 
 #[macro_export] macro_rules! impl_delete {
-    ($tipo: ty, $collection: literal) => {
+    ($tipo: ty, $collection: expr) => {
 
 #[delete("/delete/<id>", format = "json")]
 pub async fn delete(
@@ -229,7 +231,7 @@ pub async fn delete(
 }}}
 
 #[macro_export] macro_rules! impl_crud {
-    ($tipo: ty, $collection: literal) => {
+    ($tipo:ty, $collection:expr) => {
         impl_create!($tipo, $collection);
         impl_get_by_id!($tipo, $collection);
         impl_get_all!($tipo, $collection);

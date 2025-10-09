@@ -3,7 +3,7 @@ use rocket::serde::{json::{serde_json, Json}, Deserialize, Serialize};
 use rocket_db_pools::mongodb::Collection;
 
 use super::*;
-use crate::{models::{PendingPayment, Proveedor}, with_message};
+use crate::{models::{PendingPayment, User}, with_message};
 
 const URL_MP: &str = "http://mercadopago_integration:8001";
 
@@ -15,10 +15,10 @@ pub struct ExternalReference {
 }
 
 async fn check_existing_product(
-	collection: &Collection<Proveedor>,
+	collection: &Collection<User>,
 	email: &str,
 	products: &[String],
-) -> Result<Proveedor, Custom<Json<Value>>> {
+) -> Result<User, Custom<Json<Value>>> {
 	let user = collection
 		.find_one(doc! {
 			"email": email,
@@ -37,7 +37,7 @@ async fn check_existing_product(
 		))?;
 
 	// search on the user's already owned products
-	if user.cenarios.iter().any(
+	if user.products.iter().any(
 		|cenario| products.contains(cenario)
 	) {
 		Err(Custom(Status::BadRequest,
@@ -62,8 +62,8 @@ async fn check_existing_product(
 }
 
 async fn register_payment(
-	collection: &Collection<Proveedor>,
-	mut user: Proveedor,
+	collection: &Collection<User>,
+	mut user: User,
 	payment_id: String,
 	payment_data: ExternalReference
 ) -> Result<Custom<Json<Value>>, Custom<Json<Value>>> {
@@ -113,7 +113,7 @@ pub async fn create_payment(
 ) -> Result<Custom<Json<Value>>, Custom<Json<Value>>> {
 	let collection = db
 		.database(DATABASE)
-		.collection("proveedores");
+		.collection(USERS_COLLECTION);
 
 	let user = check_existing_product(
 		&collection,

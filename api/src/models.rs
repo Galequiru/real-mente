@@ -1,7 +1,7 @@
 use mongodb::bson::{doc, oid::ObjectId, Bson};
 use rocket::serde::{Deserialize, Serialize};
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(crate = "rocket::serde")]
 pub struct PendingPayment {
     pub payment_id: String,
@@ -20,25 +20,25 @@ impl Into<Bson> for PendingPayment {
 
 #[derive(Debug, Serialize, Deserialize)]
 #[serde(crate = "rocket::serde")]
-pub struct Proveedor {
+pub struct User {
     #[serde(rename = "_id", skip_serializing_if = "Option::is_none")]
     pub id: Option<ObjectId>,
     pub email: String,
     pub senha: String,
     pub nome: String,
     pub pendings: Vec<PendingPayment>,
-    pub cenarios: Vec<String>,
+    pub products: Vec<String>,
 }
 
-impl Proveedor {
+impl User {
     pub fn new(email: String, senha: String, nome: String) -> Self {
-        Proveedor {
+        User {
             id: None,
             email: email,
             senha: senha,
             nome: nome,
             pendings: vec![],
-            cenarios: vec![]
+            products: vec![]
         }
     }
 }
