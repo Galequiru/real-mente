@@ -1,0 +1,23 @@
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: api
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    restart: unless-stopped
+    depends_on:
+      - mercadopago
+  mercadopago:
+    build:
+      context: ./mercadopago
+      dockerfile: Dockerfile
+    container_name: mercadopago_integration
+    ports:
+      - "8001:8001"
+    env_file:
+      - .env
+    restart: unless-stopped

@@ -45,3 +45,6 @@ Rocket.toml
 *.http
 target/
 .env
+
+# mercadopago
+.venv
