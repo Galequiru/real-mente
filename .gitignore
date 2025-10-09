@@ -39,7 +39,11 @@ packages/react-devtools-inline/dist
 packages/react-devtools-shell/dist
 packages/react-devtools-timeline/dist
 
-# back-end
+# api
 Rocket.toml
 *.http
-/target
+target/
+.env
+
+# mercadopago
+.venv
