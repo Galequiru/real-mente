@@ -1,0 +1,15 @@
+main {
+	flex-grow: 1;
+	padding-top: 50px;
+	padding-bottom: 80px;
+}
+
+.mainContent {
+	font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+	width: clamp(200px, 70%, 1000px);
+	margin: auto;
+	text-align: center;
+    color: #ffffff;
+    font-size: x-large;
+    font-weight: 1000;
+}

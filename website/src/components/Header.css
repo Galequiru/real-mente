@@ -1,0 +1,92 @@
+.header{
+    text-align: center;
+    background-color: black;
+}
+
+.menuTelas {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.botaoH{
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #000000;
+    border: none;
+    font-size:29px;
+    color: #B50073;
+    background-color: black;
+    font-weight: 1000;
+    transition: transform 0.3s ease;
+}
+
+.botaoH:hover{
+    transform: scale(1.05);
+    color: #5A12E4;
+}
+
+.botaoH:focus {
+    color: #5A12E4;
+}
+
+.logo{
+    width: 230px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover{
+    transform: scale(1.05);
+
+}
+
+.linhaH {
+    margin-top: 30px;
+    border: none;
+    height: 1.4px;
+    background-color: #5A12E4;
+    width: 100%;
+}
+
+.botaoCadH{
+    border-radius: 6px;
+    width: 120px;
+    height: 30px;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    border: 2px solid #B50073;
+    background-color: #d62a97b5;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight:1000;
+    transition: transform 0.3s ease;
+}
+
+.botaoCadH:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.355);
+}
+.botaoLogH{
+    border-radius: 6px;
+    width: 100px;
+    height: 30px;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #ca369437;
+    border: 2px solid #B50073;
+    color: #B50073;
+    font-weight:1000;
+    transition: transform 0.3s ease;
+}
+
+.botaoLogH:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.355);
+}
+
+.loginCadastroH{
+    padding: 30px;
+    gap: 10px;
+    display: flex;
+    justify-content: right;
+}

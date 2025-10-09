@@ -1,3 +1,4 @@
+# front-end
 # from https://github.com/facebook/react/blob/main/.gitignore
 .DS_STORE
 node_modules

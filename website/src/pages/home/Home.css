@@ -1,0 +1,14 @@
+
+.info{
+    text-align: center;
+    width: 600px;
+    height: 500px;
+    background-color: #000000;
+}
+
+.infoBox{
+    width: 740px;
+    height: 420px;
+    background-color: #ccc;
+    border-radius: 10px;
+}

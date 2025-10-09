@@ -1,0 +1,20 @@
+.conteudoMateria {
+	display: flex;
+}
+
+.colunaCenarios {
+	padding-right: 30px;
+	border-right: 2px solid white;
+}
+
+ul {
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+li {
+	text-align: left;
+	list-style-type: none;
+}

@@ -1,0 +1,103 @@
+.cadastro{
+    height: 100vh;
+    background-color: black;
+    justify-content: center;  
+    align-items: center;
+    display: flex;
+}
+
+.cardCadastro{
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #ca369437;
+    border: 2px solid #B50073;
+    border-radius: 20px ;
+    color: #B50073;
+    font-size: x-large;
+    width: auto;
+    height: auto;
+    font-weight:1000;
+    text-align: center;
+    border-radius: 10px;
+    padding: 50px;
+}
+
+.linhaC {
+    border: none;  
+    height: 1px; 
+    background-color: #B50073;
+    width: 450px;    
+}
+
+.cadastrarC{
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #ca369437;
+    border: 2px solid #B50073;
+    border-radius: 10px;
+    height: 60px;
+    width: 210px;
+    background-color: #ca369437;
+    color: #B50073;
+    font-size: x-large;
+    font-weight:1000;
+    transition: transform 0.3s ease;
+}
+
+.cadastrarC:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.355);
+
+}
+
+.usuarioC{
+    height: 35px;
+    width: 400px;
+    border: 2px solid #B50073;
+    border-radius: 8px;
+    background-color: #ca369437;
+    font-size: large;
+    color: white;
+    font-weight:580;
+}
+
+.emailC{
+    height: 35px;
+    width: 400px;
+    border: 2px solid #B50073;
+    border-radius: 8px;
+    background-color: #ca369437;
+    font-size: large;
+    color: white;
+    font-weight:580;
+}
+
+
+.senhaC{
+    height: 35px;
+    width:400px;
+    border: 2px solid #B50073;
+    border-radius: 8px;
+    background-color: #ca369437;
+    font-size: large;
+    color: white;
+    font-weight:580;
+}
+
+.containsInfo{
+    text-align: left;
+}
+
+.confSenhaC{
+    height: 35px;
+    width:400px;
+    border: 2px solid #B50073;
+    border-radius: 8px;
+    background-color: #ca369437;
+    font-size: large;
+    color: white;
+    font-weight:580;
+}
+
+.logC{
+    color: #B50073;
+    font-size: 18px;
+}

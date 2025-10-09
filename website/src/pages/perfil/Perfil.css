@@ -1,0 +1,54 @@
+.perfil{
+    text-align: left;
+}
+
+.containerInfo{
+    margin: 0 auto;
+    max-width: max-content;
+    padding: 40px 20px;
+    display: flex;
+    gap: 90px;
+}
+
+.botoes{
+    padding: 30px;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.botaoCad{
+    border-radius: 6px;
+    width: 200px;
+    height: 60px;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    border: 2px solid #B50073;
+    background-color: #d62a97b5;
+    color: #ffffff;
+    font-size: large;
+    font-weight:1000;
+    transition: transform 0.3s ease;
+}
+
+.botaoCad:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.355);
+}
+
+.botaoLog{
+    border-radius: 6px;
+    width: 200px;
+    height: 60px;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #ca369437;
+    border: 2px solid #B50073;
+    color: #B50073;
+    font-weight:1000;
+    transition: transform 0.3s ease;
+    font-size: large;
+}
+
+.botaoLog:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.355);
+}

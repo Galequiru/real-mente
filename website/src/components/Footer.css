@@ -1,0 +1,32 @@
+.linhaF {
+    border: none;
+    height: 1.4px;
+    background-color: #5A12E4;
+    width: 100%;
+}
+
+.footer{
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    font-weight:1000;
+    font-size:larger;
+}
+
+.footerContent {
+    padding: 50px;
+}
+
+.contatos {
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+}
+
+.l1{
+    color: #ffff;
+    margin-bottom: 20px;
+}
+
+.l2, .l3, .l4 {
+    color: #B50073;
+}
+
