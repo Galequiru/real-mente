@@ -44,7 +44,8 @@ fn rocket() -> _ {
     .mount(
         "/payments",
         routes![
-            payments::create_payment
+            payments::create_payment,
+            payments::check_user_payments
         ]
     )
 }
