@@ -1,23 +1,19 @@
-import React, {  } from "react";
 import { Link } from "react-router-dom";
 import { calcularPrecoPacote } from "../../helpers";
 import './PaginaMateria.css'
+import type { Materia } from "../../types";
+import type { FormEvent } from "react";
 
-/**
- * @import {Materia} from '../../index'
- * @param {{
- * 	materia: Materia
- * }}
- */
 export default function PaginaMateria({
 	materia: {
 		nome, slug, cenarios
 	}
+}: {
+	materia: Materia
 }) {
 	const preco = calcularPrecoPacote(...cenarios.map(c => c.price))
 
-	/** @param {SubmitEvent} e */
-	async function handleSubmit(e) {
+	async function handleSubmit(e: FormEvent<Element>) {
 		e.preventDefault();
 
 		const payload = {
@@ -47,7 +43,7 @@ export default function PaginaMateria({
 				throw new Error(data['message']);
 
 			window.location.href = data['data']['init_point'];
-		} catch (error) {
+		} catch (error: any) {
 			alert("Tivemos um problema ao processar seu pedido: "+error.message);
 		}
 	}

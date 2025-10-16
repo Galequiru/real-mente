@@ -1,13 +1,17 @@
-import { useState } from "react"
+import { useState, type FormEvent } from "react"
 import './Login.css'
 import { Link, useNavigate } from 'react-router-dom'
 
-function Login(props) {
+function Login({
+  atualizarUsuario
+}: {
+  atualizarUsuario: (usuario: string) => void
+}) {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
-  const handleLogin = async (evento) => {
+  const handleLogin = async (evento: FormEvent<Element>) => {
     evento.preventDefault();
 
     const payload = {
@@ -29,7 +33,7 @@ function Login(props) {
     }
     if (response.status === 200) {
       const user = (await response.json())['data'];
-      props.atualizarUsuario(user.nome);
+      atualizarUsuario(user.nome);
       navigate("/");
     }
   };

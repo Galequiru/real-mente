@@ -1,7 +1,9 @@
 import './Perfil.css'
 import { Link } from 'react-router-dom'
 
-function Perfil({usuario}) {
+function Perfil({ usuario }: {
+    usuario: string
+}) {
     return(
         <div className = "perfil">
             {usuario === ""
@@ -42,7 +44,7 @@ function Perfil({usuario}) {
             </div>
             </>}
 
-            
+
         </div>
     )
 }

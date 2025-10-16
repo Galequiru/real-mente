@@ -1,26 +1,24 @@
 import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-import Home from './pages/home/Home'
-import Cadastro from './pages/cadastro/Cadastro'
-import EscolhaDestino from './pages/escolhaDestino/EscolhaDestino'
-import QuemSomos from './pages/quemSomos/QuemSomos'
-import ComoFunciona from './pages/comoFunciona/ComoFunciona'
-import Login from './pages/login/Login'
-import MainLayout from './components/MainLayout'
-import PlanosParaCompra from './pages/planosParaCompra/PlanosParaCompra'
-import PaginaMateria from './pages/paginaMateria/PaginaMateria'
-import PaginaCenario from './pages/paginaCenario/PaginaCenario'
-import Perfil from './pages/perfil/Perfil'
-
-/** @import {Materia} from './index' */
+import type { Materia } from "./types"
+import MainLayout from './components/MainLayout';
+import Cadastro from './pages/cadastro/Cadastro';
+import Login from './pages/login/Login';
+import ComoFunciona from './pages/comoFunciona/ComoFunciona';
+import EscolhaDestino from './pages/escolhaDestino/EscolhaDestino';
+import Home from './pages/home/Home';
+import PaginaCenario from './pages/paginaCenario/PaginaCenario';
+import PaginaMateria from './pages/paginaMateria/PaginaMateria';
+import Perfil from './pages/perfil/Perfil';
+import PlanosParaCompra from './pages/planosParaCompra/PlanosParaCompra';
+import QuemSomos from './pages/quemSomos/QuemSomos';
 
 function App() {
   const [usuario, setUsuario] = useState("")
-  /** @type {[Materia[], React.Dispatch<React.SetStateAction<Materia[]>>]} */
-  const [materias, setMaterias] = useState([]);        // guarda a resposta da API
-  const [carregando, setCarregando] = useState(true); // mostra status do carga
-  const [error, setError] = useState(null);          // guarda possivel erro
+  const [materias, setMaterias] = useState<Materia[]>([]); // guarda a resposta da API
+  const [carregando, setCarregando] = useState(true);     // mostra status do carga
+  const [error, setError] = useState<any>(null);         // guarda possivel erro
 
   useEffect(() => {
     // faz a chamada no carregamenteo da página
@@ -70,13 +68,15 @@ function App() {
         <Route path="/perfil" element={
           <Perfil usuario={usuario} />
         } />
-        { // criando rotas automaticamente atravez da resposta da api
+        {
+        // criando rotas automaticamente atravez da resposta da api
         materias.map(materia =>
           <Route key={materia.slug} path={`/${materia.slug}`} >
             <Route index element={
               <PaginaMateria materia={materia} />
             } />
-            { // cada cenario tem seu link aninhado em sua materia
+            {
+            // cada cenario tem seu link aninhado em sua materia
             materia.cenarios.map(cenario =>
               <Route key={cenario.slug} path={`/${materia.slug}/${cenario.slug}`} element={
                 <PaginaCenario materia={materia} cenario={cenario} />
@@ -93,6 +93,3 @@ function App() {
 }
 
 export default App
-
-
-

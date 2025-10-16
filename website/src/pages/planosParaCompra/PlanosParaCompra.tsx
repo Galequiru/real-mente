@@ -1,14 +1,11 @@
 import LinhaOfertasMateria from "../../components/LinhaOfertasMateria"
+import type { Materia } from "../../types"
 import "./PlanosParaCompra.css"
 
-/**
- * @import { Materia } from '../../index'
- * @param {{
- *	materias: Materia[]
- * }}
- */
 export default function PlanosParaCompra({
 	materias
+}: {
+	materias: Materia[]
 }) {
 	return <>
 		<p className="introducao">Você pode escolher se vai comprar um cenário individual ou todo o pacote de uma matéria!</p>

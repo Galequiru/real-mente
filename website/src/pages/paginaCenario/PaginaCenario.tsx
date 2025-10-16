@@ -1,15 +1,11 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import type { Cenario, Materia } from "../../types";
 
-/**
- * @import {Materia, Cenario} from '../../index'
- * @param {{
- *	materia: Materia
- *	cenario: Cenario
- * }}
- */
 export default function PaginaCenario({
 	materia, cenario
+}: {
+	materia: Materia,
+	cenario: Cenario
 }) {
 	return <>
 		<h2><Link to={`/${materia.slug}`}>{materia.nome}</Link> ❯ {cenario.nome}</h2>

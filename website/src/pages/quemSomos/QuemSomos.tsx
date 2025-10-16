@@ -1,4 +1,3 @@
-import React from 'react'
 import './QuemSomos.css'
 import liaImg from '../../assets/lia.jpg'
 import gabrielImg from '../../assets/gabriel.png'

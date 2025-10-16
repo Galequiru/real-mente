@@ -1,24 +1,21 @@
 import { useRef, useState } from 'react'
 import './EscolhaDestino.css'
 import CardDestino from '../../components/CardDestino'
+import type { Materia } from '../../types'
 
-/**
- * @import { Materia } from '../../index'
- * @param {{
- *  materias: Materia[]
- * }}
- */
 const EscolhaDestino = ({
   materias
+}: {
+  materias: Materia[]
 }) => {
-  const cardsRef = useRef(null)
+  const cardsRef = useRef<HTMLDivElement>(null)
 
   const scrollLeft = () => {
-    cardsRef.current.scrollBy({ left: -250, behavior: 'smooth' })
+    cardsRef.current?.scrollBy({ left: -250, behavior: 'smooth' })
   }
 
   const scrollRight = () => {
-    cardsRef.current.scrollBy({ left: 250, behavior: 'smooth' })
+    cardsRef.current?.scrollBy({ left: 250, behavior: 'smooth' })
   }
 
   const [materia, setMateria] = useState('');

@@ -1,17 +1,14 @@
 import { Link } from 'react-router-dom'
 import { calcularPrecoPacote } from '../helpers'
 import './LinhaOfertasMateria.css'
+import type { Materia } from '../types'
 
-/**
- * @import { Materia } from '../index'
- * @param {{
- *	materia: Materia
- * }}
- */
 export default function LinhaOfertasMateria({
 	materia: {
 		slug, cenarios
 	}
+}: {
+	materia: Materia
 }) {
 	const valorPacote = calcularPrecoPacote(...cenarios.map(c => c.price))
 	return <>
