@@ -21,3 +21,13 @@ services:
     env_file:
       - .env
     restart: unless-stopped
+  website:
+    build:
+      context: ./website
+      dockerfile: Dockerfile
+    container_name: website
+    ports:
+      - "80:3000"
+    restart: unless-stopped
+    depends_on:
+      - api
