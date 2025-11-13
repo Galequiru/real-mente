@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
 import type { Materia } from "./types"
 import MainLayout from './components/MainLayout';
@@ -88,6 +88,7 @@ function App() {
       {/* Rotas para cadastro e login fora do layout principal */}
       <Route path="/cadastro" element={<Cadastro atualizarUsuario={setUsuario}/>} />
       <Route path="/login" element={<Login atualizarUsuario={setUsuario} />} />
+      <Route path='*' element={<Navigate to={"/"} replace />} />
     </Routes>
   )
 }
