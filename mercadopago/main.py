@@ -51,10 +51,6 @@ def create_payment(data: PaymentRequest):
 				'unit_price': data.price
 			}
 		],
-		'external_reference': dumps({
-			'email': data.email,
-			'products': data.products
-		}, separators=(',', ':'))
 	}))
 
 @app.post('/get_payment/{preference_id}')
