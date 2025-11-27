@@ -16,3 +16,42 @@
 .cardDestino:hover{
     transform: scale(1.05);
 }
+
+/* Pseudo-element renders the background image defined by --bg-image */
+.cardDestino {
+    position: relative;
+    overflow: hidden;
+}
+
+.cardDestino::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.75);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.cardDestino::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.35), rgba(0,0,0,0.02));
+    z-index: 0;
+    pointer-events: none;
+}
+
+.cardDestino .cardTitulo {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    margin: 0;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    padding: 12px;
+    text-align: center;
+}
