@@ -4,9 +4,10 @@ import Header from './Header';
 import Footer from './Footer';
 import { Outlet } from 'react-router-dom';
 import type { ReactElement } from 'react';
+import type { Usuario } from '../types';
 
 const MainLayout = ({ usuario, children }: {
-  usuario: string,
+  usuario?: Usuario,
   children?: ReactElement
 }) => {
   return (

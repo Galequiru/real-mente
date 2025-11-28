@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 
-import type { Materia } from "./types"
+import type { Materia, Usuario } from "./types"
 import MainLayout from './components/MainLayout';
 import Cadastro from './pages/cadastro/Cadastro';
 import Login from './pages/login/Login';
@@ -15,7 +15,7 @@ import PlanosParaCompra from './pages/planosParaCompra/PlanosParaCompra';
 import QuemSomos from './pages/quemSomos/QuemSomos';
 
 function App() {
-  const [usuario, setUsuario] = useState("")
+  const [usuario, setUsuario] = useState<Usuario|undefined>(undefined);
   const [materias, setMaterias] = useState<Materia[]>([]); // guarda a resposta da API
   const [carregando, setCarregando] = useState(true);     // mostra status do carga
   const [error, setError] = useState<any>(null);         // guarda possivel erro

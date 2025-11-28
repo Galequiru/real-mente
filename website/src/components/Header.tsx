@@ -1,20 +1,21 @@
 import { Link } from 'react-router-dom'
 import './Header.css'
 import logo from '../assets/logo.png'
+import type { Usuario } from '../types'
 
 function Header({ usuario }: {
-    usuario: string
+    usuario?: Usuario
 }) {
     return (
         <header className="header">
             <div className="loginCadastroH">
-                {usuario === ""
+                {usuario == undefined
                 ? <>
                     <Link to="/login"><button className="botaoLogH">ENTRAR</button></Link>
                     <Link to="/cadastro"><button className="botaoCadH">CADASTRE-SE</button></Link>
                 </>
                 : <>
-                    <Link to = "perfil"><h1 style={{color: "white"}}>Olá, {usuario}</h1></Link>
+                    <Link to = "perfil"><h1 style={{color: "white"}}>Olá, {usuario.nome}</h1></Link>
                 </>}
             </div>
             <Link to="/">

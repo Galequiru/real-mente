@@ -1,11 +1,12 @@
 import { useState, type FormEvent } from 'react'
 import './Cadastro.css'
 import { Link, useNavigate } from 'react-router-dom'
+import type { Usuario } from '../../types'
 
 function Cadastro({
   atualizarUsuario
 }: {
-  atualizarUsuario: (usuario: string) => void
+  atualizarUsuario: (usuario: Usuario) => void
 }) {
   const navigate = useNavigate()
   const [usuario, setUsuario] = useState('');
@@ -38,8 +39,14 @@ function Cadastro({
       alert("Este email já está cadastrado, faça login");
       return navigate('/login');
     }
-    atualizarUsuario(usuario);
-    return navigate('/');
+    atualizarUsuario({
+      email: email,
+      senha: senha,
+      nome: usuario,
+      pendings: [],
+      products: [],
+    });
+    return navigate('/perfil');
   };
 
   return (

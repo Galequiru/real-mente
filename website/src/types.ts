@@ -9,3 +9,16 @@ export type Materia = {
 	slug: string,
 	cenarios: Cenario[]
 }
+
+export type PendingPayment = {
+	payment_id: string,
+	products: string[]
+}
+
+export type Usuario = {
+	email: string,
+	senha: string,
+	nome: string,
+	pendings: PendingPayment[],
+	products: string[]
+}

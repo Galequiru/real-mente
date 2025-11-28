@@ -1,11 +1,12 @@
 import { useState, type FormEvent } from "react"
 import './Login.css'
 import { Link, useNavigate } from 'react-router-dom'
+import type { Usuario } from "../../types";
 
 function Login({
   atualizarUsuario
 }: {
-  atualizarUsuario: (usuario: string) => void
+  atualizarUsuario: (usuario: Usuario) => void
 }) {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -33,8 +34,8 @@ function Login({
     }
     if (response.status === 200) {
       const user = (await response.json())['data'];
-      atualizarUsuario(user.nome);
-      navigate("/");
+      atualizarUsuario(user);
+      navigate("/perfil");
     }
   };
 
