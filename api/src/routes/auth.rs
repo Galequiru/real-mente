@@ -36,18 +36,28 @@ pub async fn register(
         )
     }
     let params = data.into_inner();
-    match collection
-    .insert_one(User::new(
+    let new_user = User::new(
         params.email,
         params.senha,
         params.nome
-    ), None)
+    );
+    match collection
+    .insert_one(&new_user, None)
     .await {
-        Ok(_) => {
+        Ok(res) => {
+            let user_id = res
+                .inserted_id
+                .as_object_id()
+                .unwrap();
+
             Custom(Status::Ok,
                 Json(json!({
                     "status": "success",
-                    "message": "User registered successfully"
+                    "message": "User registered successfully",
+                    "data": User {
+                        id: Some(user_id),
+                        ..new_user
+                    }
                 }))
             )
         },
