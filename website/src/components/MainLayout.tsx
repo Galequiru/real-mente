@@ -6,13 +6,14 @@ import { Outlet } from 'react-router-dom';
 import type { ReactElement } from 'react';
 import type { Usuario } from '../types';
 
-const MainLayout = ({ usuario, children }: {
+const MainLayout = ({ usuario, children, onLogout }: {
   usuario?: Usuario,
-  children?: ReactElement
+  children?: ReactElement,
+  onLogout: () => void
 }) => {
   return (
     <>
-      <Header usuario={usuario} />
+      <Header usuario={usuario} onLogout={onLogout} />
       <main>
         <section className='mainContent'>
         {children

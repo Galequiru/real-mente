@@ -3,8 +3,9 @@ import './Header.css'
 import logo from '../assets/logo.png'
 import type { Usuario } from '../types'
 
-function Header({ usuario }: {
-    usuario?: Usuario
+function Header({ usuario, onLogout }: {
+    usuario?: Usuario,
+    onLogout: () => void
 }) {
     return (
         <header className="header">
@@ -16,6 +17,7 @@ function Header({ usuario }: {
                 </>
                 : <>
                     <Link to = "perfil"><h1 style={{color: "white"}}>Olá, {usuario.nome}</h1></Link>
+                    <button className='botaoSair' onClick={onLogout}>Sair</button>
                 </>}
             </div>
             <Link to="/">

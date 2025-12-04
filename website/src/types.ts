@@ -16,6 +16,9 @@ export type PendingPayment = {
 }
 
 export type Usuario = {
+	_id: {
+		"$oid": string
+	},
 	email: string,
 	senha: string,
 	nome: string,

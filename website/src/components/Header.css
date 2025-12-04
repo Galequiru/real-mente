@@ -84,6 +84,23 @@
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.355);
 }
 
+.botaoSair {
+    border-radius: 6px;
+    width: 100px;
+    height: 50px;
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+    background-color: #ca369437;
+    border: 2px solid #B50073;
+    color: #B50073;
+    font-weight:1000;
+    font-size: x-large;
+    transition: transform 0.3s ease;
+}
+.botaoSair:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.355);
+}
+
 .loginCadastroH{
     padding: 30px;
     gap: 10px;

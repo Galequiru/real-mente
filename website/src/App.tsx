@@ -14,11 +14,47 @@ import Perfil from './pages/perfil/Perfil';
 import PlanosParaCompra from './pages/planosParaCompra/PlanosParaCompra';
 import QuemSomos from './pages/quemSomos/QuemSomos';
 
+const USER_ID_KEY = "USER_ID";
+
 function App() {
   const [usuario, setUsuario] = useState<Usuario|undefined>(undefined);
   const [materias, setMaterias] = useState<Materia[]>([]); // guarda a resposta da API
   const [carregando, setCarregando] = useState(true);     // mostra status do carga
   const [error, setError] = useState<any>(null);         // guarda possivel erro
+  const [carregandoUsuario, setCarregandoUsuario] = useState(true);
+
+  const onLogin = (user: Usuario) => {
+    setUsuario(user);
+    console.log(usuario);
+    localStorage.setItem(USER_ID_KEY, user._id['$oid']);
+  };
+
+  const onLogout = () => {
+    setUsuario(undefined);
+    localStorage.removeItem(USER_ID_KEY);
+  }
+
+  useEffect(() => {
+    const id = localStorage.getItem(USER_ID_KEY);
+    if (!id) {
+      setCarregandoUsuario(false);
+      return;
+    }
+
+    (async () => {
+      try {
+        const response = await fetch("http://localhost:8000/users/get/"+id)
+        if (!response.ok) throw new Error();
+
+        const body = await response.json();
+        setUsuario(body['data'])
+      } catch {
+        setUsuario(undefined);
+      } finally {
+        setCarregandoUsuario(false)
+      }
+    })();
+  }, []);
 
   useEffect(() => {
     // faz a chamada no carregamenteo da página
@@ -39,7 +75,8 @@ function App() {
       });
   }, []); // pegando dados da api uma vez no processo de mount
 
-  if (carregando || error != null) return <MainLayout usuario={usuario}>
+  if (carregando || carregandoUsuario || error != null) return
+  <MainLayout usuario={usuario} onLogout={onLogout}>
     {carregando
     ? <p>Carregando...</p>
     : <p>Error: {error}</p>}
@@ -48,7 +85,7 @@ function App() {
   return (
     <Routes>
       <Route element={
-        <MainLayout usuario={usuario} />
+        <MainLayout usuario={usuario} onLogout={onLogout} />
       }>
         <Route path="/" element={
           <Home />
@@ -86,8 +123,8 @@ function App() {
         )}
       </Route>
       {/* Rotas para cadastro e login fora do layout principal */}
-      <Route path="/cadastro" element={<Cadastro atualizarUsuario={setUsuario}/>} />
-      <Route path="/login" element={<Login atualizarUsuario={setUsuario} />} />
+      <Route path="/cadastro" element={<Cadastro onLogin={onLogin}/>} />
+      <Route path="/login" element={<Login onLogin={onLogin} />} />
       <Route path='*' element={<Navigate to={"/"} replace />} />
     </Routes>
   )

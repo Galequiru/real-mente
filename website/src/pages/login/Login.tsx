@@ -4,9 +4,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import type { Usuario } from "../../types";
 
 function Login({
-  atualizarUsuario
+  onLogin
 }: {
-  atualizarUsuario: (usuario: Usuario) => void
+  onLogin: (usuario: Usuario) => void
 }) {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -33,8 +33,10 @@ function Login({
       return;
     }
     if (response.status === 200) {
-      const user = (await response.json())['data'];
-      atualizarUsuario(user);
+      const body = await response.json()
+      const user: Usuario = body['data'];
+
+      onLogin(user);
       navigate("/perfil");
     }
   };

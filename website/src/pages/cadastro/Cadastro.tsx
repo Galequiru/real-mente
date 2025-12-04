@@ -4,9 +4,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import type { Usuario } from '../../types'
 
 function Cadastro({
-  atualizarUsuario
+  onLogin
 }: {
-  atualizarUsuario: (usuario: Usuario) => void
+  onLogin: (usuario: Usuario) => void
 }) {
   const navigate = useNavigate()
   const [usuario, setUsuario] = useState('');
@@ -39,13 +39,10 @@ function Cadastro({
       alert("Este email já está cadastrado, faça login");
       return navigate('/login');
     }
-    atualizarUsuario({
-      email: email,
-      senha: senha,
-      nome: usuario,
-      pendings: [],
-      products: [],
-    });
+    const body = await response.json()
+    const user: Usuario = body['data']
+
+    onLogin(user);
     return navigate('/perfil');
   };
 
